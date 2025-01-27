@@ -198,7 +198,7 @@ void UpdateDraw()
     for (int i = 0; i < particles.size(); i++)
     {
         grid[particles.at(i).posYLast][particles.at(i).posXLast] = ' ';
-        grid[particles.at(i).posY][particles.at(i).posX] = '*';
+        grid[particles.at(i).posY][particles.at(i).posX] = (char)i + 32;
     }
 }
 
