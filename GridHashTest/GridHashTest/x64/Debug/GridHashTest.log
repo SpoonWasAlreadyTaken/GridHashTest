@@ -1,47 +1,121 @@
-﻿sfml-system-s-d.lib(Vector2.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Vector2.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(String.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Clock.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoMode.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowBase.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Window.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoModeImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Cursor.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlResource.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlContext.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(CursorImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickManager.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorManager.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImplWin32.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VulkanImplWin32.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Context.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WglContext.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorImpl.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Transformable.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shape.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(CircleShape.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Texture.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Font.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTarget.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderWindow.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Text.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderStates.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexArray.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLExtensions.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLCheck.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Image.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(TextureSaver.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(BlendMode.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(StencilMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(StencilMode.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(View.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shader.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexBuffer.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Glsl.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Err.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Sleep.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Utils.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Utils.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(SleepImpl.obj)' or at ''; linking object as if no debug info
-MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
+﻿  GridHashTest.cpp
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(11,41): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(11,41): warning C4305:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(11,41): warning C4305:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(11,41): warning C4305:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(11,41): warning C4305:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(14,13): warning C4305: 'initializing': truncation from 'double' to 'float'
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,166): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,166): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,166): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,166): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,166): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,115): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,115): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,115): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,115): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,76): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,76): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,76): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,76): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,51): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,51): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,51): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,51): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(52,29): warning C4834: discarding return value of function with [[nodiscard]] attribute
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(81,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48): warning C4244: 'argument': conversion from 'float' to '_Ty', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48): warning C4244:             _Ty=int
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+      C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,48):
+      the template instantiation context (the oldest one first) is
+          C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,103):
+          see reference to function template instantiation 'int RandomNumber<float,float&>(T &&,Y)' being compiled
+          with
+          [
+              T=float,
+              Y=float &
+          ]
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244: 'argument': conversion from 'T' to '_Ty', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         and
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:             _Ty=int
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Spoon.hpp(8,43): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(32,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+      C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(32,11):
+      the template instantiation context (the oldest one first) is
+          C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(38,13):
+          see reference to function template instantiation 'Particle &std::vector<Particle,std::allocator<Particle>>::emplace_back<sf::Vector2f,sf::Vector2f,const float&,int&>(sf::Vector2f &&,sf::Vector2f &&,const float &,int &)' being compiled
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vector(858,24):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_one_at_back<sf::Vector2<float>,sf::Vector2<float>,const float&,int&>(sf::Vector2<float> &&,sf::Vector2<float> &&,const float &,int &)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vector(776,20):
+          see reference to function template instantiation '_Ty &std::vector<_Ty,std::allocator<_Ty>>::_Emplace_back_with_unused_capacity<sf::Vector2<float>,sf::Vector2<float>,const float&,int&>(sf::Vector2<float> &&,sf::Vector2<float> &&,const float &,int &)' being compiled
+          with
+          [
+              _Ty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\vector(794,27):
+          see reference to function template instantiation 'void std::_Default_allocator_traits<_Alloc>::construct<_Ty,sf::Vector2<float>,sf::Vector2<float>,const float&,int&>(_Alloc &,_Objty *const ,sf::Vector2<float> &&,sf::Vector2<float> &&,const float &,int &)' being compiled
+          with
+          [
+              _Alloc=std::allocator<Particle>,
+              _Ty=Particle,
+              _Objty=Particle
+          ]
+          C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.42.34433\include\xmemory(700,82):
+          see reference to function template instantiation 'Particle::Particle<_T,const float&,int&>(V &&,V &&,F,I)' being compiled
+          with
+          [
+              _T=sf::Vector2f,
+              V=sf::Vector2f,
+              F=const float &,
+              I=int &
+          ]
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(33,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(34,11): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(35,52): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(35,36): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(35,21): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(45,1): warning C4172: returning address of local variable or temporary 
   GridHashTest.vcxproj -> C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\GridHashTest.exe
