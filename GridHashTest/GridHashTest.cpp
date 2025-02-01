@@ -7,31 +7,37 @@
 #include <chrono>
 #include <thread>
 #include <cmath>
-#include <unordered_map>
 
 #include "PhysicsSolver.hpp"
 #include "Particle.hpp"
 #include "SpatialHashing.hpp"
-#include "Spoon.hpp"
+#include "FaultyUtilities.hpp"
 
 
 
 
-
+// variable decleration
 int sizeX = 800;
 int sizeY = 800;
 
+float const particleSize = 5;
+
+int toSpawn = 100;
 
 // function declerations
-
 void Draw(sf::RenderWindow& window);
 
 
-PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8);
+// class instancing
+PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
 
 
-int toSpawn = 1000;
+// rending declerations
 sf::CircleShape circle(1.0f);
+
+// vertex array method
+sf::VertexArray quad(sf::PrimitiveType::Triangles, 40000);
+sf::Texture sprite;
 
 
 
@@ -42,37 +48,52 @@ int main()
     bool stopGap2 = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles");
 
-    sf::Clock clock;
+ 
+    // rendering code
     circle.setPointCount(8);
+
+    // vertex array method
+    sprite.loadFromFile("./Assets\\CircleSprite.png"); // set to the texture path
+    sprite.generateMipmap();
+    sprite.setSmooth(true);
+     
+    // fps code
+    sf::Clock clock;
     float currentTime = 0;
     int fps = 0;
     int avgFPS = 0;
 
-    sf::Font virust_font;
-    virust_font.openFromFile("C:\\Users\\PREDATOR\\Documents\\VisualStudioStuff\\Fonts\\VIRUST.ttf");
+    // text code
+    sf::Font font;
+    font.openFromFile("C:\\Users\\PREDATOR\\Documents\\VisualStudioStuff\\Fonts\\VIRUST.ttf"); // set to the font path
 
-    sf::Text fpsText(virust_font, "60");
-    sf::Text particleCountText(virust_font, std::to_string(physicsSolver.particles.size()));
+
+    sf::Text fpsText(font, "60");
+    sf::Text particleCountText(font, std::to_string(physicsSolver.particles.size()));
     fpsText.setFillColor(sf::Color(0, 255, 0));
     particleCountText.setFillColor(sf::Color(255, 0, 0));
     fpsText.setPosition(sf::Vector2f(5, 0));
     particleCountText.setPosition(sf::Vector2f(5, 30));
 
-    //sf::RectangleShape gridObject(sf::Vector2f(hasher.gridResolution, hasher.gridResolution));
-    //gridObject.setFillColor(sf::Color::Black);
-    //gridObject.setOutlineThickness(1.f);
-    //gridObject.setOutlineColor(sf::Color(255, 255, 255, 100));
+    sf::RectangleShape gridObject(sf::Vector2f(physicsSolver.spatialHashing.cellSize, physicsSolver.spatialHashing.cellSize));
+    gridObject.setFillColor(sf::Color::Black);
+    gridObject.setOutlineThickness(1.f);
+    gridObject.setOutlineColor(sf::Color(255, 255, 255, 100));
 
+
+    // spawning initial particles
     for (int i = 0; i < toSpawn; i++)
     {
-        //physicsSolver.AddParticle();
+        physicsSolver.AddParticle();
     }
 
+
+    // main loop
     while (window.isOpen())
     {
         if (avgFPS > 60)
         {
-            physicsSolver.AddParticle();
+            //physicsSolver.AddParticle();
         }
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
@@ -128,7 +149,18 @@ int main()
             }
         }
         window.clear();
+        /*
+        for (int x = 0; x < physicsSolver.spatialHashing.gridsX; x++)
+        {
+            for (int y = 0; y < physicsSolver.spatialHashing.gridsY; y++)
+            {
+                gridObject.setPosition(sf::Vector2f((float)x * physicsSolver.spatialHashing.cellSize, (float)y * physicsSolver.spatialHashing.cellSize));
+                window.draw(gridObject);
+            }
+        }
+        */
         Draw(window);
+
         window.draw(fpsText);
         window.draw(particleCountText);
 
@@ -140,6 +172,26 @@ int main()
             stopGap = true;
         }
         stopGap2 = !stopGap;
+        
+        system("CLS");/*
+        for (int i = 0; i < physicsSolver.particles.size(); i++)
+        {
+            std::cout << "Particle ID: " << i << " | Particle gridID: " << physicsSolver.particles.at(i).gridID << " | Particle Position: " << physicsSolver.particles.at(i).position.x << " :x|y: " << physicsSolver.particles.at(i).position.y << "\n";
+        }
+        */
+        for (int y = 0; y < physicsSolver.spatialHashing.rowsY; y++)
+        {
+            for (int x = 0; x < physicsSolver.spatialHashing.columsX; x++)
+            {
+                if (!physicsSolver.spatialHashing.grid[y][x].empty())
+                {
+                    for (int i = 0; i < physicsSolver.spatialHashing.grid[y][x].size(); i++)
+                    {
+                        std::cout << "Particle ID: " << physicsSolver.spatialHashing.grid[y][x].at(i) << " | Particle gridID: " << y << ":y|x:" << x << " | Particle Position: " << physicsSolver.particles.at(physicsSolver.spatialHashing.grid[y][x].at(i)).position.x << " :x|y: " << physicsSolver.particles.at(physicsSolver.spatialHashing.grid[y][x].at(i)).position.y << "\n";
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -149,11 +201,47 @@ void Draw(sf::RenderWindow& window)
 {
     for (int i = 0; i < physicsSolver.particles.size(); i++)
     {
+        int const index = i * 6;
+        /**/
+        // vertex array method of drawing
+
+        // collor assignment
+        quad[index].color = physicsSolver.particles.at(i).color;
+        quad[index +1].color = physicsSolver.particles.at(i).color;
+        quad[index +2].color = physicsSolver.particles.at(i).color;
+
+        quad[index +3].color = physicsSolver.particles.at(i).color;
+        quad[index +4].color = physicsSolver.particles.at(i).color;
+        quad[index +5].color = physicsSolver.particles.at(i).color;
+
+        // position assignment
+        quad[index].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y);
+        quad[index +1].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y);
+        quad[index +2].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
+
+        quad[index +3].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
+        quad[index +4].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y);
+        quad[index +5].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
+
+        // texture cordinte assignment
+        quad[index].texCoords = sf::Vector2f(0, 0);
+        quad[index +1].texCoords = sf::Vector2f(0, 512);
+        quad[index +2].texCoords = sf::Vector2f(512, 0);
+
+        quad[index +3].texCoords = sf::Vector2f(0, 0);
+        quad[index +4].texCoords = sf::Vector2f(512, 512);
+        quad[index +5].texCoords = sf::Vector2f(512, 0);
+
+
+        // normal method of drawing
+        /*
         circle.setPosition(physicsSolver.particles.at(i).position);
         circle.setScale(sf::Vector2f(physicsSolver.particleSize, physicsSolver.particleSize));
         circle.setFillColor(physicsSolver.particles.at(i).color);
         window.draw(circle);
+        */
     }
+    window.draw(quad, &sprite);
 }
 
 

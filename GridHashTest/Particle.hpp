@@ -1,5 +1,5 @@
 #pragma once
-#include "Spoon.hpp"
+#include "FaultyUtilities.hpp"
 
 class Particle
 {
@@ -9,9 +9,6 @@ public:
 	sf::Vector2f acceleration;
 
 	int ID;
-	int gridID;
-
-	bool atRest = false;
 
 	float size;
 
@@ -29,9 +26,9 @@ public:
 		ID = std::forward<I>(i);
 
 
-		float r = sin((float)ID * 0.1);
-		float g = sin((float)ID * 0.1 * 0.33 * 2 * acos(0));
-		float b = sin((float)ID * 0.1 * 0.66 * 2 * acos(0));
+		float r = sin(((float)ID + 5) * 0.1);
+		float g = sin(((float)ID + 5) * 0.1 * 0.33 * 2 * acos(0));
+		float b = sin(((float)ID + 5) * 0.1 * 0.66 * 2 * acos(0));
 		color = sf::Color((255 * r * r), ( 255 * g * g), (255 * b * b));
 	}
 
@@ -51,14 +48,5 @@ public:
 		lastPosition = position;
 		position += displacement + acceleration * (DT * DT);
 		acceleration = {};
-
-		if (position == lastPosition)
-		{
-			atRest = true;
-		}
-		else
-		{
-			atRest = false;
-		}
 	}
 };
