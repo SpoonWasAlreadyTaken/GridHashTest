@@ -40,7 +40,7 @@ public:
 
 	void SetSpatialHashing()
 	{
-		spatialHashing.cellSize = (int)particleSize * 2;
+		spatialHashing.cellSize = (int)particleSize;
 
 		spatialHashing.columsX = boundX / spatialHashing.cellSize;
 		spatialHashing.rowsY = boundY / spatialHashing.cellSize;
@@ -127,7 +127,7 @@ private:
 			{
 				particles.at(index).position.x = boundX - particles.at(index).size * 2;
 			}
-			if (particles.at(index).position.x< 0)
+			if (particles.at(index).position.x < 0)
 			{
 				particles.at(index).position.x = 0;
 			}
@@ -139,7 +139,7 @@ private:
 			{
 				particles.at(index).position.y = boundY - particles.at(index).size * 2;
 			}
-			if (particles.at(index).position.y< 0)
+			if (particles.at(index).position.y < 0)
 			{
 				particles.at(index).position.y = 0;
 			}
@@ -174,6 +174,7 @@ private:
 					sf::Vector2f change = ((particles.at(o).position - particles.at(i).position) / distance) * 0.5f * (particles.at(o).size + particles.at(i).size - distance);
 					particles.at(o).position += change;
 					particles.at(i).position -= change;
+					std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
 				}
 			}
 		}
@@ -197,7 +198,10 @@ private:
 					continue;
 				}
 
-				ParticleCollision(gridY, gridX, newY, newX);
+				if (!spatialHashing.grid[newY][newX].empty())
+				{
+					ParticleCollision(gridY, gridX, newY, newX);
+				}
 			}
 		}
 	}
@@ -213,6 +217,17 @@ private:
 		{
 			x = particles.at(i).position.x / spatialHashing.cellSize;
 			y = particles.at(i).position.y / spatialHashing.cellSize;
+
+			if (x < 0 || x >= spatialHashing.columsX)
+			{
+				std::cout << "Tried X: " << x << "\n";
+				continue;
+			}
+			if (y < 0 || y >= spatialHashing.columsX)
+			{
+				std::cout << "Tried Y: " << y << "\n";
+				continue;
+			}
 
 			spatialHashing.grid[y][x].emplace_back(i);
 		}

@@ -22,7 +22,7 @@ int sizeY = 800;
 
 float const particleSize = 5;
 
-int toSpawn = 100;
+int toSpawn = 5;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -93,7 +93,7 @@ int main()
     {
         if (avgFPS > 60)
         {
-            //physicsSolver.AddParticle();
+           // physicsSolver.AddParticle();
         }
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
@@ -173,12 +173,14 @@ int main()
         }
         stopGap2 = !stopGap;
         
-        system("CLS");/*
+        //system("CLS");
+        /*
         for (int i = 0; i < physicsSolver.particles.size(); i++)
         {
             std::cout << "Particle ID: " << i << " | Particle gridID: " << physicsSolver.particles.at(i).gridID << " | Particle Position: " << physicsSolver.particles.at(i).position.x << " :x|y: " << physicsSolver.particles.at(i).position.y << "\n";
         }
         */
+        /*
         for (int y = 0; y < physicsSolver.spatialHashing.rowsY; y++)
         {
             for (int x = 0; x < physicsSolver.spatialHashing.columsX; x++)
@@ -192,6 +194,9 @@ int main()
                 }
             }
         }
+        */
+
+        window.setFramerateLimit(120);
     }
 }
 
