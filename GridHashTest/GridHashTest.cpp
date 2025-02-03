@@ -22,7 +22,7 @@ int sizeY = 800;
 
 float const particleSize = 5;
 
-int toSpawn = 5;
+int toSpawn = 3000;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -65,7 +65,7 @@ int main()
 
     // text code
     sf::Font font;
-    font.openFromFile("C:\\Users\\PREDATOR\\Documents\\VisualStudioStuff\\Fonts\\VIRUST.ttf"); // set to the font path
+    font.openFromFile("./Assets\\VIRUST.ttf"); // set to the font path
 
 
     sf::Text fpsText(font, "60");
@@ -84,7 +84,7 @@ int main()
     // spawning initial particles
     for (int i = 0; i < toSpawn; i++)
     {
-        physicsSolver.AddParticle();
+        //physicsSolver.AddParticle();
     }
 
 
@@ -93,7 +93,7 @@ int main()
     {
         if (avgFPS > 60)
         {
-           // physicsSolver.AddParticle();
+            physicsSolver.AddParticle();
         }
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
@@ -149,16 +149,7 @@ int main()
             }
         }
         window.clear();
-        /*
-        for (int x = 0; x < physicsSolver.spatialHashing.gridsX; x++)
-        {
-            for (int y = 0; y < physicsSolver.spatialHashing.gridsY; y++)
-            {
-                gridObject.setPosition(sf::Vector2f((float)x * physicsSolver.spatialHashing.cellSize, (float)y * physicsSolver.spatialHashing.cellSize));
-                window.draw(gridObject);
-            }
-        }
-        */
+
         Draw(window);
 
         window.draw(fpsText);
@@ -167,35 +158,14 @@ int main()
         window.display();
 
         physicsSolver.PhysicsUpdate();
+
         if (stopGap2)
         {
             stopGap = true;
         }
         stopGap2 = !stopGap;
         
-        //system("CLS");
-        /*
-        for (int i = 0; i < physicsSolver.particles.size(); i++)
-        {
-            std::cout << "Particle ID: " << i << " | Particle gridID: " << physicsSolver.particles.at(i).gridID << " | Particle Position: " << physicsSolver.particles.at(i).position.x << " :x|y: " << physicsSolver.particles.at(i).position.y << "\n";
-        }
-        */
-        /*
-        for (int y = 0; y < physicsSolver.spatialHashing.rowsY; y++)
-        {
-            for (int x = 0; x < physicsSolver.spatialHashing.columsX; x++)
-            {
-                if (!physicsSolver.spatialHashing.grid[y][x].empty())
-                {
-                    for (int i = 0; i < physicsSolver.spatialHashing.grid[y][x].size(); i++)
-                    {
-                        std::cout << "Particle ID: " << physicsSolver.spatialHashing.grid[y][x].at(i) << " | Particle gridID: " << y << ":y|x:" << x << " | Particle Position: " << physicsSolver.particles.at(physicsSolver.spatialHashing.grid[y][x].at(i)).position.x << " :x|y: " << physicsSolver.particles.at(physicsSolver.spatialHashing.grid[y][x].at(i)).position.y << "\n";
-                    }
-                }
-            }
-        }
-        */
-
+       
         window.setFramerateLimit(120);
     }
 }

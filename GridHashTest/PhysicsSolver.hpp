@@ -13,7 +13,7 @@ public:
 	sf::Vector2f gravity = sf::Vector2f(0, 9.81);
 	bool gravityON = false;
 
-	float DT = 0.1;
+	float DT = 0.01;
 
 	float particleSize;
 
@@ -40,7 +40,7 @@ public:
 
 	void SetSpatialHashing()
 	{
-		spatialHashing.cellSize = (int)particleSize;
+		spatialHashing.cellSize = ceilf((particleSize) * 2);
 
 		spatialHashing.columsX = boundX / spatialHashing.cellSize;
 		spatialHashing.rowsY = boundY / spatialHashing.cellSize;
@@ -70,7 +70,7 @@ public:
 
 			for (int i = 0; i < particles.size(); i++)
 			{
-				if (gravityON) particles.at(i).acceleration += gravity;
+				if (gravityON) particles.at(i).acceleration += gravity / DT;
 
 				EdgeCheck(i);
 
@@ -90,7 +90,6 @@ public:
 					}
 				}
 			}
-			//ParticleCollision();
 		}
 	}
 
@@ -167,14 +166,14 @@ private:
 					continue;
 				}
 
-				float distance = abs(sqrt(pow((particles.at(o).position.x - particles.at(i).position.x), 2) + pow((particles.at(o).position.y - particles.at(i).position.y), 2)));
+				float distance = sqrt(pow((particles.at(o).position.x - particles.at(i).position.x), 2) + pow((particles.at(o).position.y - particles.at(i).position.y), 2));
 
 				if (distance < particles.at(o).size + particles.at(i).size)
 				{
 					sf::Vector2f change = ((particles.at(o).position - particles.at(i).position) / distance) * 0.5f * (particles.at(o).size + particles.at(i).size - distance);
 					particles.at(o).position += change;
 					particles.at(i).position -= change;
-					std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
+					//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
 				}
 			}
 		}
@@ -218,16 +217,9 @@ private:
 			x = particles.at(i).position.x / spatialHashing.cellSize;
 			y = particles.at(i).position.y / spatialHashing.cellSize;
 
-			if (x < 0 || x >= spatialHashing.columsX)
-			{
-				std::cout << "Tried X: " << x << "\n";
-				continue;
-			}
-			if (y < 0 || y >= spatialHashing.columsX)
-			{
-				std::cout << "Tried Y: " << y << "\n";
-				continue;
-			}
+			if (x < 0 || x >= spatialHashing.columsX) continue;
+			if (y < 0 || y >= spatialHashing.rowsY) continue;
+
 
 			spatialHashing.grid[y][x].emplace_back(i);
 		}
