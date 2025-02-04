@@ -179,22 +179,18 @@ private:
 	{
 		int newPos;
 
-
-		for (int y = 0; y < 5; y++)
+		for (int i = 0; i < 5; i++)
 		{
-			for (int x = 0; x < 5; x++)
+			newPos = gridPos + checkX[i] + checkY[i] * spatialHashing.columsX;
+
+			if (newPos < 0 || newPos >= spatialHashing.gridCount)
 			{
-				newPos = gridPos + checkX[x] + checkY[y] * spatialHashing.columsX;
+				continue;
+			}
 
-				if (newPos < 0 || newPos >= spatialHashing.gridCount)
-				{
-					continue;
-				}
-
-				if (!spatialHashing.grid[newPos].empty())
-				{
-					ParticleCollision(gridPos, newPos);
-				}
+			if (!spatialHashing.grid[newPos].empty())
+			{
+				ParticleCollision(gridPos, newPos);
 			}
 		}
 	}

@@ -36,7 +36,8 @@ PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
 sf::CircleShape circle(1.0f);
 
 // vertex array method
-sf::VertexArray quad(sf::PrimitiveType::Triangles, 40000);
+size_t vertexBuffer = 100000;
+sf::VertexArray quad(sf::PrimitiveType::Triangles, vertexBuffer);
 sf::Texture sprite;
 std::vector<sf::Color> colors;
 
@@ -49,6 +50,19 @@ int main()
     bool stopGap2 = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles");
 
+
+    for (int i = 0; i < vertexBuffer / 6; i++)
+    {
+        // texture cordinte assignment
+        int index = i * 6;
+        quad[index].texCoords = sf::Vector2f(0, 0);
+        quad[index + 1].texCoords = sf::Vector2f(0, 512);
+        quad[index + 2].texCoords = sf::Vector2f(512, 0);
+
+        quad[index + 3].texCoords = sf::Vector2f(0, 0);
+        quad[index + 4].texCoords = sf::Vector2f(512, 512);
+        quad[index + 5].texCoords = sf::Vector2f(512, 0);
+    }
  
     // rendering code
     circle.setPointCount(8);
@@ -214,16 +228,6 @@ void Draw(sf::RenderWindow& window)
         quad[index +3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
         quad[index +4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
         quad[index +5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-
-        // texture cordinte assignment
-        quad[index].texCoords = sf::Vector2f(0, 0);
-        quad[index +1].texCoords = sf::Vector2f(0, 512);
-        quad[index +2].texCoords = sf::Vector2f(512, 0);
-
-        quad[index +3].texCoords = sf::Vector2f(0, 0);
-        quad[index +4].texCoords = sf::Vector2f(512, 512);
-        quad[index +5].texCoords = sf::Vector2f(512, 0);
-
 
         // normal method of drawing
         /*
