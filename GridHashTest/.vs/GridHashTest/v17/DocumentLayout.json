@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "GridHashTest.cpp",
               "ToolTip": "C:\\Users\\PREDATOR\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp",
               "RelativeToolTip": "GridHashTest.cpp",
-              "ViewState": "AgIAACoAAAAAAAAAAAASwEQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAEwCgAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-26T14:40:28.365Z",
               "IsPinned": true,
@@ -56,8 +56,7 @@
               "RelativeToolTip": "Particle.hpp",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAABsAAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T10:57:15.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T10:57:15.83Z"
             },
             {
               "$type": "Document",
@@ -69,8 +68,7 @@
               "RelativeToolTip": "PhysicsSolver.hpp",
               "ViewState": "AgIAAC8AAAAAAAAAAAAlwEsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T10:54:50.56Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T10:54:50.56Z"
             },
             {
               "$type": "Document",
@@ -82,8 +80,7 @@
               "RelativeToolTip": "SpatialHashing.hpp",
               "ViewState": "AgIAAB4AAAAAAAAAAAAAADQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T10:57:13.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T10:57:13.974Z"
             },
             {
               "$type": "Document",
@@ -95,8 +92,7 @@
               "RelativeToolTip": "FaultyUtilities.hpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-31T16:03:14.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T16:03:14.929Z"
             }
           ]
         }
