@@ -42,8 +42,16 @@ public:
 
 	void AddMember(int index)
 	{
-		members[size] = index;
-		size++;
+		if (size >= members.size())
+		{
+			members.emplace_back(index);
+			size++;
+		}
+		else
+		{
+			members[size] = index;
+			size++;
+		}
 	}
 
 	int Size()
