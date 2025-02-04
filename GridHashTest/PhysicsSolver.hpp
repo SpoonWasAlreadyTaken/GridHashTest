@@ -185,22 +185,19 @@ private:
 		int newX;
 		int newY;
 
-		for (int y = 0; y < 5; y++)
+		for (int i = 0; i < 5; i++)
 		{
-			for (int x = 0; x < 5; x++)
+			newY = gridY + checkY[i];
+			newX = gridX + checkX[i];
+
+			if (newX < 0 || newY < 0 || newX >= spatialHashing.columsX || newY >= spatialHashing.rowsY)
 			{
-				newY = gridY + checkY[y];
-				newX = gridX + checkX[x];
+				continue;
+			}
 
-				if (newX < 0 || newY < 0 || newX >= spatialHashing.columsX || newY >= spatialHashing.rowsY)
-				{
-					continue;
-				}
-
-				if (!spatialHashing.grid[newY][newX].empty())
-				{
-					ParticleCollision(gridY, gridX, newY, newX);
-				}
+			if (!spatialHashing.grid[newY][newX].empty())
+			{
+				ParticleCollision(gridY, gridX, newY, newX);
 			}
 		}
 	}

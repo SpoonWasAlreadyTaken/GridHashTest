@@ -36,7 +36,8 @@ PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
 sf::CircleShape circle(1.0f);
 
 // vertex array method
-sf::VertexArray quad(sf::PrimitiveType::Triangles, 40000);
+size_t vertexBuffer = 100000;
+sf::VertexArray quad(sf::PrimitiveType::Triangles, vertexBuffer);
 sf::Texture sprite;
 
 
@@ -48,7 +49,34 @@ int main()
     bool stopGap2 = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles");
 
- 
+    for (int i = 0; i < vertexBuffer / 6; i++)
+    {
+        // texture cordinte assignment
+        int index = i * 6;
+        quad[index].texCoords = sf::Vector2f(0, 0);
+        quad[index + 1].texCoords = sf::Vector2f(0, 512);
+        quad[index + 2].texCoords = sf::Vector2f(512, 0);
+
+        quad[index + 3].texCoords = sf::Vector2f(0, 0);
+        quad[index + 4].texCoords = sf::Vector2f(512, 512);
+        quad[index + 5].texCoords = sf::Vector2f(512, 0);
+
+        // collor assignment
+
+        float r = sin(((float)i + 5) * 0.1);
+        float g = sin(((float)i + 5) * 0.1 * 0.33 * 2 * acos(0));
+        float b = sin(((float)i + 5) * 0.1 * 0.66 * 2 * acos(0));
+        sf::Color color = sf::Color((255 * r * r), (255 * g * g), (255 * b * b));
+
+        quad[index].color = color;
+        quad[index + 1].color = color;
+        quad[index + 2].color = color;
+
+        quad[index + 3].color = color;
+        quad[index + 4].color = color;
+        quad[index + 5].color = color;
+    }
+
     // rendering code
     circle.setPointCount(8);
 
@@ -177,17 +205,6 @@ void Draw(sf::RenderWindow& window)
     for (int i = 0; i < physicsSolver.particles.size(); i++)
     {
         int const index = i * 6;
-        /**/
-        // vertex array method of drawing
-
-        // collor assignment
-        quad[index].color = physicsSolver.particles[i].color;
-        quad[index +1].color = physicsSolver.particles[i].color;
-        quad[index +2].color = physicsSolver.particles[i].color;
-
-        quad[index +3].color = physicsSolver.particles[i].color;
-        quad[index +4].color = physicsSolver.particles[i].color;
-        quad[index +5].color = physicsSolver.particles[i].color;
 
         // position assignment
         quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
@@ -197,24 +214,6 @@ void Draw(sf::RenderWindow& window)
         quad[index +3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
         quad[index +4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
         quad[index +5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-
-        // texture cordinte assignment
-        quad[index].texCoords = sf::Vector2f(0, 0);
-        quad[index +1].texCoords = sf::Vector2f(0, 512);
-        quad[index +2].texCoords = sf::Vector2f(512, 0);
-
-        quad[index +3].texCoords = sf::Vector2f(0, 0);
-        quad[index +4].texCoords = sf::Vector2f(512, 512);
-        quad[index +5].texCoords = sf::Vector2f(512, 0);
-
-
-        // normal method of drawing
-        /*
-        circle.setPosition(physicsSolver.particles.at(i).position);
-        circle.setScale(sf::Vector2f(physicsSolver.particleSize, physicsSolver.particleSize));
-        circle.setFillColor(physicsSolver.particles.at(i).color);
-        window.draw(circle);
-        */
     }
     window.draw(quad, &sprite);
 }
