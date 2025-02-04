@@ -30,7 +30,7 @@ public:
 
 		subDT = DT / (float)substeps;
 
-		particles.reserve(1000);
+		particles.reserve(5000);
 
 		initialVelocityX /= subDT;
 		initialVelocityY /= subDT;
@@ -51,6 +51,13 @@ public:
 		for (int i = 0; i < spatialHashing.rowsY; i++)
 		{
 			spatialHashing.grid[i] = new std::vector<int>[spatialHashing.columsX];
+		}
+		for (int i = 0; i < spatialHashing.rowsY; i++)
+		{
+			for (int j = 0; j < spatialHashing.columsX; j++)
+			{
+				spatialHashing.grid[i][j].reserve(5);
+			}
 		}
 
 		std::cout << "GridCount: " << spatialHashing.gridCount << "\n";
@@ -170,7 +177,7 @@ private:
 
 				if (distance < particles[o].size + particles[i].size)
 				{
-					sf::Vector2f change = ((particles[o].position - particles[i].position) / distance) * 0.5f * (particles[o].size + particles[i].size - distance);
+					sf::Vector2f change = ((particles[o].position - particles[i].position) / distance) * 0.25f * (particles[o].size + particles[i].size - distance);
 					particles[o].position += change;
 					particles[i].position -= change;
 					//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";

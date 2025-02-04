@@ -20,9 +20,9 @@
 int sizeX = 800;
 int sizeY = 800;
 
-float const particleSize = 5;
+float const particleSize = 2.5;
 
-int toSpawn = 3000;
+int toSpawn = 5000;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
