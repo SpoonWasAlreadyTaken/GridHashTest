@@ -70,11 +70,11 @@ public:
 
 			for (int i = 0; i < particles.size(); i++)
 			{
-				if (gravityON) particles.at(i).acceleration += gravity / DT;
+				if (gravityON) particles[i].acceleration += gravity / DT;
 
 				EdgeCheck(i);
 
-				particles.at(i).Update(subDT);
+				particles[i].Update(subDT);
 					
 			}
 
@@ -117,32 +117,32 @@ private:
 
 	void EdgeCheck(int const &index)
 	{
-		sf::Vector2f dx = { -particles.at(index).GetVelocity().x, particles.at(index).GetVelocity().y};
-		sf::Vector2f dy = { particles.at(index).GetVelocity().x, -particles.at(index).GetVelocity().y };
+		sf::Vector2f dx = { -particles[index].GetVelocity().x, particles[index].GetVelocity().y};
+		sf::Vector2f dy = { particles[index].GetVelocity().x, -particles[index].GetVelocity().y };
 
-		if (particles.at(index).position.x + particles.at(index).size * 2 > boundX || particles.at(index).position.x < 0)
+		if (particles[index].position.x + particles[index].size * 2 > boundX || particles[index].position.x < 0)
 		{
-			if (particles.at(index).position.x + particles.at(index).size * 2 > boundX)
+			if (particles[index].position.x + particles[index].size * 2 > boundX)
 			{
-				particles.at(index).position.x = boundX - particles.at(index).size * 2;
+				particles[index].position.x = boundX - particles[index].size * 2;
 			}
-			if (particles.at(index).position.x < 0)
+			if (particles[index].position.x < 0)
 			{
-				particles.at(index).position.x = 0;
+				particles[index].position.x = 0;
 			}
-			particles.at(index).SetVelocity(dx * absorption);
+			particles[index].SetVelocity(dx * absorption);
 		}
-		if (particles.at(index).position.y + particles.at(index).size * 2 > boundY || particles.at(index).position.y< 0)
+		if (particles[index].position.y + particles[index].size * 2 > boundY || particles[index].position.y< 0)
 		{
-			if (particles.at(index).position.y + particles.at(index).size * 2 > boundY)
+			if (particles[index].position.y + particles[index].size * 2 > boundY)
 			{
-				particles.at(index).position.y = boundY - particles.at(index).size * 2;
+				particles[index].position.y = boundY - particles[index].size * 2;
 			}
-			if (particles.at(index).position.y < 0)
+			if (particles[index].position.y < 0)
 			{
-				particles.at(index).position.y = 0;
+				particles[index].position.y = 0;
 			}
-			particles.at(index).SetVelocity(dy * absorption);
+			particles[index].SetVelocity(dy * absorption);
 		}
 	}
 
@@ -158,21 +158,21 @@ private:
 		{
 			for (int t = 0; t < spatialHashing.grid[tY][tX].size(); t++)
 			{
-				int o = spatialHashing.grid[sY][sX].at(s);
-				int i = spatialHashing.grid[tY][tX].at(t);
+				int o = spatialHashing.grid[sY][sX][s];
+				int i = spatialHashing.grid[tY][tX][t];
 
-				if (spatialHashing.grid[sY][sX].at(s) == spatialHashing.grid[tY][tX].at(t))
+				if (spatialHashing.grid[sY][sX][s] == spatialHashing.grid[tY][tX][t])
 				{
 					continue;
 				}
 
-				float distance = sqrt(pow((particles.at(o).position.x - particles.at(i).position.x), 2) + pow((particles.at(o).position.y - particles.at(i).position.y), 2));
+				float distance = sqrt(pow((particles[o].position.x - particles[i].position.x), 2) + pow((particles[o].position.y - particles[i].position.y), 2));
 
-				if (distance < particles.at(o).size + particles.at(i).size)
+				if (distance < particles[o].size + particles[i].size)
 				{
-					sf::Vector2f change = ((particles.at(o).position - particles.at(i).position) / distance) * 0.5f * (particles.at(o).size + particles.at(i).size - distance);
-					particles.at(o).position += change;
-					particles.at(i).position -= change;
+					sf::Vector2f change = ((particles[o].position - particles[i].position) / distance) * 0.5f * (particles[o].size + particles[i].size - distance);
+					particles[o].position += change;
+					particles[i].position -= change;
 					//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
 				}
 			}
@@ -214,8 +214,8 @@ private:
 
 		for (int i = 0; i < particles.size(); i++)
 		{
-			x = particles.at(i).position.x / spatialHashing.cellSize;
-			y = particles.at(i).position.y / spatialHashing.cellSize;
+			x = particles[i].position.x / spatialHashing.cellSize;
+			y = particles[i].position.y / spatialHashing.cellSize;
 
 			if (x < 0 || x >= spatialHashing.columsX) continue;
 			if (y < 0 || y >= spatialHashing.rowsY) continue;

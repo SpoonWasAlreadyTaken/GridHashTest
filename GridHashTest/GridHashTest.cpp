@@ -181,22 +181,22 @@ void Draw(sf::RenderWindow& window)
         // vertex array method of drawing
 
         // collor assignment
-        quad[index].color = physicsSolver.particles.at(i).color;
-        quad[index +1].color = physicsSolver.particles.at(i).color;
-        quad[index +2].color = physicsSolver.particles.at(i).color;
+        quad[index].color = physicsSolver.particles[i].color;
+        quad[index +1].color = physicsSolver.particles[i].color;
+        quad[index +2].color = physicsSolver.particles[i].color;
 
-        quad[index +3].color = physicsSolver.particles.at(i).color;
-        quad[index +4].color = physicsSolver.particles.at(i).color;
-        quad[index +5].color = physicsSolver.particles.at(i).color;
+        quad[index +3].color = physicsSolver.particles[i].color;
+        quad[index +4].color = physicsSolver.particles[i].color;
+        quad[index +5].color = physicsSolver.particles[i].color;
 
         // position assignment
-        quad[index].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y);
-        quad[index +1].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y);
-        quad[index +2].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
+        quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
+        quad[index +1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index +2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
 
-        quad[index +3].position = sf::Vector2f(physicsSolver.particles.at(i).position.x, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
-        quad[index +4].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y);
-        quad[index +5].position = sf::Vector2f(physicsSolver.particles.at(i).position.x + physicsSolver.particles.at(i).size * 2, physicsSolver.particles.at(i).position.y + physicsSolver.particles.at(i).size * 2);
+        quad[index +3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index +4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index +5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
 
         // texture cordinte assignment
         quad[index].texCoords = sf::Vector2f(0, 0);
