@@ -6,24 +6,62 @@
 
 
 
-struct Cell
+
+struct Cell 
 {
+public:
 	std::vector<int> members;
-	int size = 0;
 
 	Cell()
 	{
-		members.reserve(10);
+		members.reserve(overhead);
+		size = 0;
+
+		for (int i = 0; i < overhead; i++)
+		{
+			members.emplace_back(-1);
+		}
 	}
 
-};
+	bool empty()
+	{
+		if (size == 0)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
 
+	void clear()
+	{
+		size = 0;
+	}
+
+	void AddMember(int index)
+	{
+		members[size] = index;
+		size++;
+	}
+
+	int Size()
+	{
+		return size;
+	}
+
+
+private:
+	int size;
+	int overhead = 5;
+};
 
 
 class SpatialHashing
 {
 public:
-	std::vector<std::vector<int>> grid;
+	std::vector<Cell> grid;
 
 	int cellSize;
 

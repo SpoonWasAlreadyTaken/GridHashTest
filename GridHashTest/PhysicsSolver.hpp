@@ -149,14 +149,14 @@ private:
 	
 	void ParticleCollision(int sXY, int tXY)
 	{
-		for (int s = 0; s < spatialHashing.grid[sXY].size(); s++)
+		for (int s = 0; s < spatialHashing.grid[sXY].Size(); s++)
 		{
-			for (int t = 0; t < spatialHashing.grid[tXY].size(); t++)
+			for (int t = 0; t < spatialHashing.grid[tXY].Size(); t++)
 			{
-				int o = spatialHashing.grid[sXY][s];
-				int i = spatialHashing.grid[tXY][t];
+				int o = spatialHashing.grid[sXY].members[s];
+				int i = spatialHashing.grid[tXY].members[t];
 
-				if (spatialHashing.grid[sXY][s] == spatialHashing.grid[tXY][t])
+				if (spatialHashing.grid[sXY].members[s] == spatialHashing.grid[tXY].members[t])
 				{
 					continue;
 				}
@@ -214,7 +214,7 @@ private:
 			if (x < 0 || x >= spatialHashing.columsX || y < 0 || y >= spatialHashing.rowsY) continue;
 
 
-			spatialHashing.grid[x + y * spatialHashing.columsX].emplace_back(i);
+			spatialHashing.grid[x + y * spatialHashing.columsX].AddMember(i);
 		}
 	}
 };
