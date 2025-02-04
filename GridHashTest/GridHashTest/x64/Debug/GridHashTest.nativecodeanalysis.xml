@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DEFECTS>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>SpatialHashing.hpp</FILENAME>
+      <LINE>36</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SpatialHashing::cellSize' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SpatialHashing::{ctor}</FUNCTION>
+    <DECORATED>??0SpatialHashing@@QEAA@XZ</DECORATED>
+    <FUNCLINE>36</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>SpatialHashing::cellSize</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>SpatialHashing.hpp</FILENAME>
+      <LINE>36</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SpatialHashing::columsX' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SpatialHashing::{ctor}</FUNCTION>
+    <DECORATED>??0SpatialHashing@@QEAA@XZ</DECORATED>
+    <FUNCLINE>36</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>SpatialHashing::columsX</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>SpatialHashing.hpp</FILENAME>
+      <LINE>36</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SpatialHashing::rowsY' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SpatialHashing::{ctor}</FUNCTION>
+    <DECORATED>??0SpatialHashing@@QEAA@XZ</DECORATED>
+    <FUNCLINE>36</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>SpatialHashing::rowsY</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>SpatialHashing.hpp</FILENAME>
+      <LINE>36</LINE>
+      <COLUMN>0</COLUMN>
+    </SFA>
+    <DEFECTCODE>26495</DEFECTCODE>
+    <DESCRIPTION>Variable 'SpatialHashing::gridCount' is uninitialized. Always initialize a member variable (type.6).</DESCRIPTION>
+    <FUNCTION>SpatialHashing::{ctor}</FUNCTION>
+    <DECORATED>??0SpatialHashing@@QEAA@XZ</DECORATED>
+    <FUNCLINE>36</FUNCLINE>
+    <ADDITIONALINFO>
+      <targetSymbol>SpatialHashing::gridCount</targetSymbol>
+    </ADDITIONALINFO>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>GridHashTest.cpp</FILENAME>
+      <LINE>57</LINE>
+      <COLUMN>23</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'sf::Texture::loadFromFile'.</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>45</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>GridHashTest.cpp</FILENAME>
+      <LINE>58</LINE>
+      <COLUMN>25</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'sf::Texture::generateMipmap'.</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>45</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+  <DEFECT>
+    <SFA>
+      <FILEPATH>C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\</FILEPATH>
+      <FILENAME>GridHashTest.cpp</FILENAME>
+      <LINE>71</LINE>
+      <COLUMN>21</COLUMN>
+    </SFA>
+    <DEFECTCODE>6031</DEFECTCODE>
+    <DESCRIPTION>Return value ignored: 'sf::Font::openFromFile'.</DESCRIPTION>
+    <FUNCTION>main</FUNCTION>
+    <DECORATED>main</DECORATED>
+    <FUNCLINE>45</FUNCLINE>
+    <PATH></PATH>
+  </DEFECT>
+</DEFECTS>
