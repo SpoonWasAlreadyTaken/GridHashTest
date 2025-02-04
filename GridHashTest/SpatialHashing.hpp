@@ -4,6 +4,22 @@
 #include "FaultyUtilities.hpp"
 
 
+
+
+struct Cell
+{
+	std::vector<int> members;
+	int size = 0;
+
+	Cell()
+	{
+		members.reserve(10);
+	}
+
+};
+
+
+
 class SpatialHashing
 {
 public:
