@@ -40,7 +40,7 @@
               "RelativeDocumentMoniker": "GridHashTest.cpp",
               "ToolTip": "C:\\Users\\PREDATOR\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp",
               "RelativeToolTip": "GridHashTest.cpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABYAAAAeAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-26T14:40:28.365Z",
               "IsPinned": true,
@@ -54,7 +54,7 @@
               "RelativeDocumentMoniker": "Particle.hpp",
               "ToolTip": "C:\\Users\\PREDATOR\\Documents\\GitHub\\GridHashTest\\GridHashTest\\Particle.hpp",
               "RelativeToolTip": "Particle.hpp",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABoAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-30T10:57:15.83Z",
               "EditorCaption": ""
@@ -67,7 +67,7 @@
               "RelativeDocumentMoniker": "PhysicsSolver.hpp",
               "ToolTip": "C:\\Users\\PREDATOR\\Documents\\GitHub\\GridHashTest\\GridHashTest\\PhysicsSolver.hpp",
               "RelativeToolTip": "PhysicsSolver.hpp",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAUwN0AAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAEwFEAAAC3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-30T10:54:50.56Z",
               "EditorCaption": ""
@@ -82,8 +82,7 @@
               "RelativeToolTip": "SpatialHashing.hpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T10:57:13.974Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T10:57:13.974Z"
             },
             {
               "$type": "Document",
@@ -95,8 +94,7 @@
               "RelativeToolTip": "FaultyUtilities.hpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-31T16:03:14.929Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-31T16:03:14.929Z"
             }
           ]
         }

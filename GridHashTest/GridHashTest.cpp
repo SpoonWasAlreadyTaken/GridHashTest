@@ -17,12 +17,12 @@
 
 
 // variable decleration
-int sizeX = 800;
-int sizeY = 800;
+int sizeX = 1000;
+int sizeY = 1000;
 
 float const particleSize = 2.5;
 
-int toSpawn = 5000;
+int toSpawn = 6400;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -63,10 +63,10 @@ int main()
 
         // collor assignment
 
-        float r = sin(((float)i + 5) * 0.1);
-        float g = sin(((float)i + 5) * 0.1 * 0.33 * 2 * acos(0));
-        float b = sin(((float)i + 5) * 0.1 * 0.66 * 2 * acos(0));
-        sf::Color color = sf::Color((255 * r * r), (255 * g * g), (255 * b * b));
+        float r = sin(((float)i + 500) * 0.001);
+        float g = sin(r + 0.33 * 2 * (2 * acos(0)));
+        float b = sin(r + 0.66 * 2 * (2 * acos(0)));
+        sf::Color color = sf::Color(static_cast<uint8_t>(255.f * r * r), static_cast<uint8_t>(255.f * g * g), static_cast<uint8_t>(255.f * b * b));
 
         quad[index].color = color;
         quad[index + 1].color = color;
@@ -205,6 +205,18 @@ void Draw(sf::RenderWindow& window)
     for (int i = 0; i < physicsSolver.particles.size(); i++)
     {
         int const index = i * 6;
+
+        float speed = fabs((physicsSolver.particles[i].GetVelocity().x + physicsSolver.particles[i].GetVelocity().y) * 70) + 20;
+
+        sf::Color color = sf::Color(speed , 0, 80);
+
+        quad[index].color = color;
+        quad[index + 1].color = color;
+        quad[index + 2].color = color;
+
+        quad[index + 3].color = color;
+        quad[index + 4].color = color;
+        quad[index + 5].color = color;
 
         // position assignment
         quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);

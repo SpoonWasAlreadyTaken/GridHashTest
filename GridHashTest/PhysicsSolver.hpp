@@ -15,6 +15,9 @@ public:
 
 	float DT = 0.01;
 
+	float spawnLocX;
+	float spawnLocY;
+
 	float particleSize;
 
 	float initialVelocityX = 50;
@@ -27,6 +30,9 @@ public:
 		particleSize = size;
 
 		substeps = s;
+
+		spawnLocX = boundX;
+		spawnLocY = boundY - size * 2;
 
 		subDT = DT / (float)substeps;
 
@@ -65,6 +71,14 @@ public:
 
 	void AddParticle()
 	{
+		spawnLocX -= particleSize *2;
+		if (spawnLocX < 0)
+		{
+			spawnLocY -= particleSize * 2;
+			spawnLocX = boundX - particleSize * 2;
+		}
+
+		//particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0), particleSize, nextID);
 		particles.emplace_back(sf::Vector2f(RandomNumber(0, boundX), RandomNumber(0, boundY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize, nextID);
 		nextID++;
 	}

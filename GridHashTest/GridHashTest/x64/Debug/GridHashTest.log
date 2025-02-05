@@ -10,60 +10,60 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(1
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(16,13): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(43,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(34,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,166): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,166): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,166): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,166): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,166): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(49,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,115): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,115): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,115): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,115): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,166): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,166): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,166): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,166): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,166): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,76): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,76): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,76): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,76): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,115): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,115): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,115): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,115): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,51): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,51): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,51): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,51): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,76): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,76): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,76): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,76): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(176,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,51): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,51): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,51): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,51): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,51): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(221,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(221,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(221,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(221,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(221,32): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(190,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(222,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(222,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(222,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(222,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(222,32): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(66,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(67,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(68,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(69,67): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(69,52): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(69,37): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(84,24): warning C4834: discarding return value of function with [[nodiscard]] attribute
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(85,26): warning C4834: discarding return value of function with [[nodiscard]] attribute
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(96,22): warning C4834: discarding return value of function with [[nodiscard]] attribute
@@ -78,6 +78,7 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(10
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:             T=float
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         ]
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(130,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(211,37): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244: 'argument': conversion from 'float' to '_Ty', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244:         with
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244:         [
@@ -86,7 +87,7 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp
   (compiling source file 'GridHashTest.cpp')
       C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48):
       the template instantiation context (the oldest one first) is
-          C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(68,103):
+          C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(82,103):
           see reference to function template instantiation 'int RandomNumber<float,float&>(T &&,Y)' being compiled
           with
           [
