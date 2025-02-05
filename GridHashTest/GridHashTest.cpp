@@ -17,8 +17,8 @@
 
 
 // variable decleration
-int sizeX = 1000;
-int sizeY = 1000;
+int sizeX = 800;
+int sizeY = 800;
 
 float const particleSize = 2.5;
 
@@ -112,7 +112,7 @@ int main()
     // spawning initial particles
     for (int i = 0; i < toSpawn; i++)
     {
-        //physicsSolver.AddParticle();
+        physicsSolver.AddParticle();
     }
 
 
@@ -121,7 +121,7 @@ int main()
     {
         if (avgFPS > 60)
         {
-            physicsSolver.AddParticle();
+            //physicsSolver.AddParticle();
         }
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
@@ -206,9 +206,9 @@ void Draw(sf::RenderWindow& window)
     {
         int const index = i * 6;
 
-        float speed = fabs((physicsSolver.particles[i].GetVelocity().x + physicsSolver.particles[i].GetVelocity().y) * 70) + 20;
+        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
 
-        sf::Color color = sf::Color(speed , 0, 80);
+        sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
 
         quad[index].color = color;
         quad[index + 1].color = color;

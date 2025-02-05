@@ -29,6 +29,16 @@ public:
 	{
 		lastPosition = position - v;
 	}
+	template <typename V>
+	void AddVelocity(V&& v)
+	{
+		lastPosition = GetVelocity() + v;
+	}
+	template <typename V>
+	void Accelerate(V&& a)
+	{
+		acceleration += a;
+	}
 	sf::Vector2f&& GetVelocity()
 	{
 		return position - lastPosition;

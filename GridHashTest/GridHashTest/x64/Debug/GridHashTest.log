@@ -78,7 +78,7 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(10
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:             T=float
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         ]
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(130,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(211,37): warning C4244: 'argument': conversion from 'float' to 'uint8_t', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(211,47): warning C4244: 'argument': conversion from 'double' to 'uint8_t', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244: 'argument': conversion from 'float' to '_Ty', possible loss of data
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244:         with
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp(9,48): warning C4244:         [
@@ -110,7 +110,7 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\FaultyUtilities.hpp
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(34): warning C4172: returning address of local variable or temporary
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(44): warning C4172: returning address of local variable or temporary
   Finished generating code
 sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Clock.obj)' or at ''; linking object as if no debug info
 sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(String.obj)' or at ''; linking object as if no debug info
