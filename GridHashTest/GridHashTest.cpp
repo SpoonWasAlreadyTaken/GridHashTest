@@ -160,13 +160,13 @@ int main()
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
             {
-                physicsSolver.gravity *= 2.f;
-                std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                physicsSolver.gravityMultiplier *= 2.f;
+                std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
             {
-                physicsSolver.gravity /= 2.f;
-                std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                physicsSolver.gravityMultiplier /= 2.f;
+                std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::G) && stopGap)
             {
@@ -174,6 +174,17 @@ int main()
                 std::cout << "Gravity: " << physicsSolver.gravityON << "\n";
                 stopGap = false;
                 break;
+            }
+
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
+            {
+                float correct = sizeX / window.getSize().x;
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, 1);
+            }
+            if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
+            {
+                float correct = sizeX / window.getSize().x;
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1);
             }
         }
         window.clear();

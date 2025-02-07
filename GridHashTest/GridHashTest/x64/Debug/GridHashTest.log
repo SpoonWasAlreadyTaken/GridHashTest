@@ -7,30 +7,33 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(1
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(16,13): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(17,13): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(34,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(35,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(49,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(50,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(190,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(135,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(235,32): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(208,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(236,32): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         ]
+  (compiling source file 'GridHashTest.cpp')
+  
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:             T=float
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(66,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
@@ -50,7 +53,17 @@ C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(10
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:             T=float
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         ]
 C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(130,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(211,47): warning C4244: 'argument': conversion from 'double' to 'uint8_t', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:             T=unsigned int
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         with
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         [
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:             T=unsigned int
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         ]
+C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(222,47): warning C4244: 'argument': conversion from 'double' to 'uint8_t', possible loss of data
   GridHashTest.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
@@ -64,6 +77,7 @@ sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' was not found with 'sf
 sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowBase.obj)' or at ''; linking object as if no debug info
 sfml-window-s-d.lib(Keyboard.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Keyboard.obj)' or at ''; linking object as if no debug info
 sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoMode.obj)' or at ''; linking object as if no debug info
+sfml-window-s-d.lib(Mouse.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Mouse.obj)' or at ''; linking object as if no debug info
 sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlResource.obj)' or at ''; linking object as if no debug info
 sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlContext.obj)' or at ''; linking object as if no debug info
 sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImpl.obj)' or at ''; linking object as if no debug info

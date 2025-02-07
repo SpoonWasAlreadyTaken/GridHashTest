@@ -11,6 +11,7 @@ public:
 	SpatialHashing spatialHashing;
 
 	sf::Vector2f gravity = sf::Vector2f(0, 9.81);
+	float gravityMultiplier = 1.f;
 	bool gravityON = false;
 
 	float DT = 0.01;
@@ -91,7 +92,11 @@ public:
 
 			for (int i = 0; i < particles.size(); i++)
 			{
-				if (gravityON) particles[i].acceleration += gravity / DT;
+				if (gravityON)
+				{
+					particles[i].acceleration += (sf::Vector2f(400, 400) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
+					//particles[i].acceleration += gravity * gravityMultiplier / DT;
+				}
 
 				EdgeCheck(i);
 
@@ -114,9 +119,22 @@ public:
 		}
 	}
 
+
+	// utility functions
+
 	void GravitySwitch()
 	{
 		gravityON = !gravityON;
+	}
+
+	void Force(sf::Vector2f pos, float strength)
+	{
+		for (int i = 0; i < particles.size(); i++)
+		{
+			sf::Vector2f direction = pos - particles[i].position;
+			float distance = sqrt(pow(direction.x, 2) + pow(direction.y, 2));
+			particles[i].Accelerate(direction * std::max(0.f, (150 - distance)) * strength);
+		}
 	}
 
 private:
