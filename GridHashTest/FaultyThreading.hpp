@@ -19,11 +19,12 @@ public:
 	{
 		std::lock_guard<std::mutex> lock(_mutex);
 		tasks.push(std::move(task));
-		condition.notify_one;
+		condition.notify_one();
+
 		taskCount++;
 	}
 
-	// grabs a task and pops it off the tasks queue.
+	// grabs a task and pops it off the task queue.
 	bool GetTask(std::function<void()>& task)
 	{
 		std::unique_lock<std::mutex> lock(_mutex);
@@ -45,7 +46,7 @@ public:
 	// gets the condition
 	std::condition_variable& GetCondition()
 	{
-		return condtion;
+		return condition;
 	}
 
 	// gets mutex
@@ -86,16 +87,19 @@ public:
 	{
 		for (size_t i = 0; i < threadCount; i++)
 		{
-			workers.emplace_back([this]() {while (working) {
-				std::function<void()> task; 
+			workers.emplace_back([this]() {while (working) 
 				{
-					std::unique_lock<std::mutex> lock(taskQueue.GetMutex());
+					std::function<void()> task; 
+					{
+						std::unique_lock<std::mutex> lock(taskQueue.GetMutex());
 
-					taskQueue.GetCondition().wait(lock, [this] { return !taskQueue.Empty() || !working; });
+						taskQueue.GetCondition().wait(lock, [this] { return !taskQueue.Empty() || !working; });
 						if (!working && taskQueue.Empty()) return;
-					task = std::move(taskQueue.GetTask(task));
-				}
-					if (task) task();
+					}
+					if (taskQueue.GetTask(task))
+					{
+						task();
+					}
 				}
 			});
 		}
@@ -109,7 +113,7 @@ public:
 	void Shutdown()
 	{
 		working = false;
-		jobQueue.GetCondition().notify_all();
+		taskQueue.GetCondition().notify_all();
 		for (std::thread& worker : workers)
 		{
 			if (worker.joinable())
