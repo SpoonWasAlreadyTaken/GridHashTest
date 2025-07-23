@@ -94,8 +94,8 @@ public:
 			{
 				if (gravityON)
 				{
-					particles[i].acceleration += (sf::Vector2f(400, 400) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
-					//particles[i].acceleration += gravity * gravityMultiplier / DT;
+					//particles[i].acceleration += (sf::Vector2f(boundX * 0.5, boundY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
+					particles[i].acceleration += gravity * gravityMultiplier / DT;
 				}
 
 				EdgeCheck(i);

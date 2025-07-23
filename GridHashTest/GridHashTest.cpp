@@ -17,12 +17,14 @@
 
 
 // variable decleration
-int sizeX = 800;
-int sizeY = 800;
+uint32_t sizeX = 1920;
+uint32_t sizeY = 1080;
+
+float elapsedTime = 0;
 
 float const particleSize = 2.5;
 
-int toSpawn = 6400;
+int toSpawn = 8000;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -47,7 +49,7 @@ int main()
     int steps = 0;
     bool stopGap = true;
     bool stopGap2 = true;
-    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles");
+    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
 
     for (int i = 0; i < vertexBuffer / 6; i++)
     {
@@ -128,6 +130,7 @@ int main()
 
         currentTime = clock.restart().asSeconds();
         fps += 1.f / (currentTime);
+        elapsedTime += currentTime;
 
         if (steps == 10)
         {
@@ -218,8 +221,9 @@ void Draw(sf::RenderWindow& window)
         int const index = i * 6;
 
         float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
-
+        
         sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
+        //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
 
         quad[index].color = color;
         quad[index + 1].color = color;

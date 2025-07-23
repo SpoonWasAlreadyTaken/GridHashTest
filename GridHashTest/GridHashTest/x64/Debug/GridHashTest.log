@@ -1,122 +1,114 @@
 ﻿cl : command line  warning D9002: ignoring unknown option '/arch:SSE'
   GridHashTest.cpp
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305: 'argument': truncation from 'double' to 'T'
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         ]
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305: 'argument': truncation from 'double' to 'T'
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         with
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         [
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:             T=float
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(13,41): warning C4305:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(17,13): warning C4305: 'initializing': truncation from 'double' to 'float'
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(17,13): warning C4305: 'initializing': truncation from 'double' to 'float'
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(35,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(35,15): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(50,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(50,34): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(135,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(135,19): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(208,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(208,20): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         ]
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         with
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         [
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:             T=float
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(253,32): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         ]
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244: '=': conversion from 'T' to 'int', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         with
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         [
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:             T=float
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\PhysicsSolver.hpp(254,32): warning C4244:         ]
   (compiling source file 'GridHashTest.cpp')
   
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(66,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(67,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(68,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(84,24): warning C4834: discarding return value of function with [[nodiscard]] attribute
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(85,26): warning C4834: discarding return value of function with [[nodiscard]] attribute
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(96,22): warning C4834: discarding return value of function with [[nodiscard]] attribute
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,115): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,115): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,115): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,115): warning C4244:         ]
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:             T=float
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(106,76): warning C4244:         ]
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(130,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:             T=unsigned int
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(181,31): warning C4244:         ]
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244: 'initializing': conversion from 'T' to 'float', possible loss of data
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         with
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         [
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:             T=unsigned int
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(186,31): warning C4244:         ]
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(222,47): warning C4244: 'argument': conversion from 'double' to 'uint8_t', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(68,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(69,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(70,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(86,24): warning C4834: discarding return value of function with [[nodiscard]] attribute
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(87,26): warning C4834: discarding return value of function with [[nodiscard]] attribute
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(98,22): warning C4834: discarding return value of function with [[nodiscard]] attribute
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,115): warning C4244:         with
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,115): warning C4244:         [
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,115): warning C4244:             T=float
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,115): warning C4244:         ]
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,76): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,76): warning C4244:         with
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,76): warning C4244:         [
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,76): warning C4244:             T=float
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(108,76): warning C4244:         ]
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(132,20): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(184,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(189,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(225,47): warning C4244: 'argument': conversion from 'double' to 'uint8_t', possible loss of data
   GridHashTest.obj : MSIL .netmodule or module compiled with /GL found; restarting link with /LTCG; add /LTCG to the link command line to improve linker performance
 LINK : warning LNK4075: ignoring '/INCREMENTAL' due to '/LTCG' specification
 MSVCRTD.lib(initializers.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
   Generating code
-C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(44): warning C4172: returning address of local variable or temporary
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(44): warning C4172: returning address of local variable or temporary
   Finished generating code
-sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Clock.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(String.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Vector2.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Vector2.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Window.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowBase.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Keyboard.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Keyboard.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoMode.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Mouse.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Mouse.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlResource.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(GlContext.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Cursor.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(InputImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(InputImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VideoModeImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(Context.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WglContext.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickManager.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorManager.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(WindowImplWin32.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(VulkanImplWin32.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(CursorImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(JoystickImpl.obj)' or at ''; linking object as if no debug info
-sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-window-s-d.lib(SensorImpl.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderStates.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(CircleShape.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Transformable.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Texture.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Font.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderWindow.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexArray.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTarget.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shape.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RectangleShape.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Text.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(BlendMode.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(StencilMode.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(StencilMode.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLExtensions.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(GLCheck.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Image.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(TextureSaver.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(View.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Shader.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(VertexBuffer.obj)' or at ''; linking object as if no debug info
-sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB '' was not found with 'sfml-graphics-s-d.lib(Glsl.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Err.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Sleep.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(Utils.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(Utils.obj)' or at ''; linking object as if no debug info
-sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB '' was not found with 'sfml-system-s-d.lib(SleepImpl.obj)' or at ''; linking object as if no debug info
-  GridHashTest.vcxproj -> C:\Users\PREDATOR\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\GridHashTest.exe
+sfml-system-s-d.lib(Clock.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(Clock.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(String.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(String.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(Vector2.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(Vector2.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(Window.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(Window.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(WindowBase.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(WindowBase.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(Keyboard.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(Keyboard.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(VideoMode.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(VideoMode.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(Mouse.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(Mouse.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(GlResource.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(GlResource.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(GlContext.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(GlContext.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(WindowImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(WindowImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(Cursor.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(Cursor.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(InputImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(InputImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(VideoModeImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(VideoModeImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(Context.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(Context.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(WglContext.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(WglContext.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(JoystickManager.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(JoystickManager.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(SensorManager.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(SensorManager.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(WindowImplWin32.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(WindowImplWin32.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(VulkanImplWin32.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(VulkanImplWin32.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(CursorImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(CursorImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(JoystickImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(JoystickImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-window-s-d.lib(SensorImpl.obj) : warning LNK4099: PDB 'sfml-window-s.pdb' was not found with 'sfml-window-s-d.lib(SensorImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-window-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderStates.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(RenderStates.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(CircleShape.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(CircleShape.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Transformable.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Transformable.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Texture.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Texture.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Font.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Font.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderWindow.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(RenderWindow.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(VertexArray.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(VertexArray.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderTarget.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(RenderTarget.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Shape.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Shape.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(RectangleShape.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(RectangleShape.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Text.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Text.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(BlendMode.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(BlendMode.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(StencilMode.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(StencilMode.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(GLExtensions.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(GLExtensions.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(GLCheck.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(GLCheck.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Image.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Image.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(TextureSaver.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(TextureSaver.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(RenderTextureImplFBO.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(RenderTextureImplFBO.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(View.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(View.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Shader.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Shader.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(VertexBuffer.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(VertexBuffer.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-graphics-s-d.lib(Glsl.obj) : warning LNK4099: PDB 'sfml-graphics-s.pdb' was not found with 'sfml-graphics-s-d.lib(Glsl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-graphics-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(Err.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(Err.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(Sleep.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(Sleep.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(Utils.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(Utils.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+sfml-system-s-d.lib(SleepImpl.obj) : warning LNK4099: PDB 'sfml-system-s.pdb' was not found with 'sfml-system-s-d.lib(SleepImpl.obj)' or at 'C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\sfml-system-s.pdb'; linking object as if no debug info
+  GridHashTest.vcxproj -> C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Debug\GridHashTest.exe
