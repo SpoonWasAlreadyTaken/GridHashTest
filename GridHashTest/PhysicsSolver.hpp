@@ -11,6 +11,7 @@ public:
 	SpatialHashing spatialHashing;
 
 	sf::Vector2f gravity = sf::Vector2f(0, 9.81);
+
 	float gravityMultiplier = 1.f;
 	bool gravityON = false;
 
@@ -84,6 +85,7 @@ public:
 		nextID++;
 	}
 
+
 	void PhysicsUpdate()
 	{
 		for (int step = 0; step < substeps; step++)
@@ -96,6 +98,7 @@ public:
 				{
 					//particles[i].acceleration += (sf::Vector2f(boundX * 0.5, boundY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
 					particles[i].acceleration += gravity * gravityMultiplier / DT;
+
 				}
 
 				EdgeCheck(i);
@@ -154,7 +157,7 @@ private:
 	int substeps;
 	float subDT;
 
-	void EdgeCheck(int const &index)
+	void EdgeCheck(int const index)
 	{
 		sf::Vector2f dx = { -particles[index].GetVelocity().x, particles[index].GetVelocity().y};
 		sf::Vector2f dy = { particles[index].GetVelocity().x, -particles[index].GetVelocity().y };
@@ -185,7 +188,7 @@ private:
 		}
 	}
 
-	sf::Vector2f ObjectCollision(sf::Vector2f const &v, sf::Vector2f const &n) 
+	sf::Vector2f ObjectCollision(sf::Vector2f const v, sf::Vector2f const n) 
 	{
 		return (2 * (v.x * n.x + v.y * n.y) * n - v ) * absorption;
 	}

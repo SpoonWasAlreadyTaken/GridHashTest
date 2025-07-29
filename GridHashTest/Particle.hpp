@@ -44,7 +44,7 @@ public:
 		return position - lastPosition;
 	}
 
-	void Update(float const &DT)
+	void Update(float const DT)
 	{
 		sf::Vector2f displacement = position - lastPosition;
 		lastPosition = position;
