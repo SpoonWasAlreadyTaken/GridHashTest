@@ -8,6 +8,9 @@
 #include <thread>
 #include <cmath>
 
+#include "FaultyUtilitiesMT.hpp"
+TaskSystem mt(30);
+
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 std::chrono::milliseconds singleMS;
@@ -21,19 +24,22 @@ std::chrono::milliseconds singleMS;
 
 
 // variable decleration
+
 uint32_t const sizeX = 1920;
 uint32_t const sizeY = 1080;
 
 float elapsedTime = 0;
 
-float const particleSize = 2.5;
+float const particleSize = 2;
 
-int toSpawn = 8000;
+int const toSpawn = 12000;
 
 
 
 // function declerations
 void Draw(sf::RenderWindow& window);
+void OldDraw(sf::RenderWindow& window);
+void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver);
 
 
 // class instancing
@@ -44,9 +50,10 @@ PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
 sf::CircleShape circle(1.0f);
 
 // vertex array method
-size_t vertexBuffer = (int)((float)sizeX / particleSize) * (int)((float)sizeY / particleSize) * 6 * 2;
+size_t vertexBuffer = toSpawn * 6;//(int)((float)sizeX / particleSize) * (int)((float)sizeY / particleSize) * 6 * 2;
 sf::VertexArray quad(sf::PrimitiveType::Triangles, vertexBuffer);
 sf::Texture sprite;
+
 
 
 
@@ -98,6 +105,8 @@ int main()
     float currentTime = 0;
     int fps = 0;
     int avgFPS = 0;
+    float ms = 0;
+    float avgMS = 0;
 
     // text code
     sf::Font font;
@@ -105,11 +114,14 @@ int main()
 
 
     sf::Text fpsText(font, "60");
+    sf::Text msText(font, "0.0166666666s");
     sf::Text particleCountText(font, std::to_string(physicsSolver.particles.size()));
     fpsText.setFillColor(sf::Color(0, 255, 0));
+    msText.setFillColor(sf::Color(255, 255, 255, 150));
     particleCountText.setFillColor(sf::Color(255, 0, 0));
-    fpsText.setPosition(sf::Vector2f(5, 0));
-    particleCountText.setPosition(sf::Vector2f(5, 30));
+    fpsText.setPosition(sf::Vector2f(5, 5));
+    msText.setPosition(sf::Vector2f(5, 35));
+    particleCountText.setPosition(sf::Vector2f(5, 70));
 
     sf::RectangleShape gridObject(sf::Vector2f(physicsSolver.spatialHashing.cellSize, physicsSolver.spatialHashing.cellSize));
     gridObject.setFillColor(sf::Color::Black);
@@ -135,14 +147,18 @@ int main()
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
 
         currentTime = clock.restart().asSeconds();
-        fps += 1.f / (currentTime);
+        fps += 1 / currentTime;
+        ms += currentTime;
         elapsedTime += currentTime;
 
         if (steps == 10)
         {
             avgFPS = fps / steps;
+            avgMS = ms / steps;
             fpsText.setString(std::to_string(avgFPS));
+            msText.setString(std::to_string(avgMS) + "s");
             fps = 0;
+            ms = 0;
             steps = 0;
         }
         steps++;
@@ -201,6 +217,7 @@ int main()
         Draw(window);
 
         window.draw(fpsText);
+        window.draw(msText);
         window.draw(particleCountText);
 
         window.display();
@@ -214,24 +231,44 @@ int main()
         stopGap2 = !stopGap;
         
        
-        window.setFramerateLimit(120);
+        //window.setFramerateLimit(120);
     }
+
+    mt.~TaskSystem();
 }
 
 // functions
 
 void Draw(sf::RenderWindow& window)
 {
-    
-    
-    
     t1 = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < physicsSolver.particles.size(); i++)
+
+    uint32_t count = physicsSolver.particles.size();
+    uint32_t span = count / mt.ActiveThreads();
+    uint32_t leftOver = count - (span * mt.ActiveThreads());
+
+    for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
+    {
+        mt.AddTask(DrawRange, i * span, span, leftOver * (i == mt.ActiveThreads() - 1));
+    }
+    mt.WaitForComplete();
+    window.draw(quad, &sprite);
+    t2 = std::chrono::high_resolution_clock::now();
+    singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+    //std::cout << "Draw Time: " << singleMS.count() << "\n";
+}
+
+
+void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws particles in selected range
+{
+    uint32_t end = start + span + leftOver;
+    
+    for (uint32_t i = start; i < end; i++)
     {
         int const index = i * 6;
 
         float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
-        
+
         sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
         //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
 
@@ -245,18 +282,49 @@ void Draw(sf::RenderWindow& window)
 
         // position assignment
         quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
-        quad[index +1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index +2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index + 2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
 
-        quad[index +3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-        quad[index +4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index +5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+    }
+}
+
+void OldDraw(sf::RenderWindow& window)
+{
+
+
+
+    t1 = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < physicsSolver.particles.size(); i++)
+    {
+        int const index = i * 6;
+
+        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
+
+        sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
+        //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
+
+        quad[index].color = color;
+        quad[index + 1].color = color;
+        quad[index + 2].color = color;
+
+        quad[index + 3].color = color;
+        quad[index + 4].color = color;
+        quad[index + 5].color = color;
+
+        // position assignment
+        quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
+        quad[index + 1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index + 2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+
+        quad[index + 3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
+        quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
     }
     window.draw(quad, &sprite);
     t2 = std::chrono::high_resolution_clock::now();
     singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
-    //std::cout << "Draw Time: " << singleMS.count() << "\n";
+    std::cout << "Draw Time: " << singleMS.count() << "\n";
 }
-
-
-

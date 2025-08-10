@@ -89,10 +89,23 @@ public:
 	void PhysicsUpdate()
 	{
 		t1 = std::chrono::high_resolution_clock::now();
+		
+
 		for (int step = 0; step < substeps; step++)
 		{
-			
+			uint32_t count = particles.size();
+			uint32_t span = count / mt.ActiveThreads();
+			uint32_t leftOver = count - (span * mt.ActiveThreads());
 
+			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
+			{
+				mt.AddTask([this, span, count, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+			}
+
+			mt.WaitForComplete();
+
+			
+			/*
 			for (int i = 0; i < particles.size(); i++)
 			{
 				if (gravityON)
@@ -107,7 +120,9 @@ public:
 				particles[i].Update(subDT);
 					
 			}
+			*/
 
+			/*
 			FillGrid();
 
 			for (int y = 0; y < spatialHashing.rowsY; y++)
@@ -120,10 +135,11 @@ public:
 					}
 				}
 			}
+			*/
 		}
 		t2 = std::chrono::high_resolution_clock::now();
 		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
-		std::cout << "Draw Time: " << singleMS.count() << "\n";
+		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
 
@@ -266,5 +282,30 @@ private:
 
 			spatialHashing.grid[y][x].emplace_back(i);
 		}
+	}
+
+	void UpdateRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	{
+		uint32_t end = start + span + leftOver;
+
+		for (uint32_t i = start; i < end; i++)
+		{
+			if (gravityON)
+			{
+				//particles[i].acceleration += (sf::Vector2f(boundX * 0.5, boundY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
+				particles[i].acceleration += gravity * gravityMultiplier / DT;
+
+			}
+
+			EdgeCheck(i);
+
+			particles[i].Update(subDT);
+
+		}
+	}
+
+	void DoSlice(uint32_t start, uint32_t span, uint32_t leftOver)
+	{
+
 	}
 };
