@@ -8,6 +8,10 @@
 #include <thread>
 #include <cmath>
 
+std::chrono::steady_clock::time_point t1;
+std::chrono::steady_clock::time_point t2;
+std::chrono::milliseconds singleMS;
+
 #include "PhysicsSolver.hpp"
 #include "Particle.hpp"
 #include "SpatialHashing.hpp"
@@ -17,14 +21,16 @@
 
 
 // variable decleration
-uint32_t sizeX = 1920;
-uint32_t sizeY = 1080;
+uint32_t const sizeX = 1920;
+uint32_t const sizeY = 1080;
 
 float elapsedTime = 0;
 
 float const particleSize = 2.5;
 
 int toSpawn = 8000;
+
+
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -38,7 +44,7 @@ PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
 sf::CircleShape circle(1.0f);
 
 // vertex array method
-size_t vertexBuffer = 100000;
+size_t vertexBuffer = (int)((float)sizeX / particleSize) * (int)((float)sizeY / particleSize) * 6 * 2;
 sf::VertexArray quad(sf::PrimitiveType::Triangles, vertexBuffer);
 sf::Texture sprite;
 
@@ -216,6 +222,10 @@ int main()
 
 void Draw(sf::RenderWindow& window)
 {
+    
+    
+    
+    t1 = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < physicsSolver.particles.size(); i++)
     {
         int const index = i * 6;
@@ -243,6 +253,9 @@ void Draw(sf::RenderWindow& window)
         quad[index +5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
     }
     window.draw(quad, &sprite);
+    t2 = std::chrono::high_resolution_clock::now();
+    singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+    //std::cout << "Draw Time: " << singleMS.count() << "\n";
 }
 
 

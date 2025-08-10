@@ -88,6 +88,7 @@ public:
 
 	void PhysicsUpdate()
 	{
+		t1 = std::chrono::high_resolution_clock::now();
 		for (int step = 0; step < substeps; step++)
 		{
 			
@@ -120,6 +121,9 @@ public:
 				}
 			}
 		}
+		t2 = std::chrono::high_resolution_clock::now();
+		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+		std::cout << "Draw Time: " << singleMS.count() << "\n";
 	}
 
 
