@@ -21,6 +21,8 @@ public:
 	float spawnLocY;
 
 	float particleSize;
+	float minCollision;
+	float particleDiameter;
 
 	float initialVelocityX = 50;
 	float initialVelocityY = 50;
@@ -30,6 +32,8 @@ public:
 		boundX = resolutionX;
 		boundY = resolutionY;
 		particleSize = size;
+		particleDiameter = particleSize * 2;
+		minCollision = particleDiameter * particleDiameter;
 
 		substeps = s;
 
@@ -82,15 +86,14 @@ public:
 			spawnLocX = boundX - particleSize * 2;
 		}
 
-		particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0), particleSize, nextID);
-		//particles.emplace_back(sf::Vector2f(RandomNumber(0, boundX), RandomNumber(0, boundY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize, nextID);
-		nextID++;
+		particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0), particleSize);
+		//particles.emplace_back(sf::Vector2f(RandomNumber(0, boundX), RandomNumber(0, boundY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize);
 	}
 
 
 	void PhysicsUpdate()
 	{
-		
+		t1 = std::chrono::high_resolution_clock::now();
 		for (int step = 0; step < substeps; step++)
 		{
 			
@@ -109,37 +112,38 @@ public:
 			
 			mt.WaitForComplete();
 
-			
+			/*
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, gSpan, gLeftOver, i]() {ClearRange(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 
 			mt.WaitForComplete();
-			
+			*/
 			
 			spatialHashing.ClearGrid();
 			
 			FillGrid();
 			
-			/*
 			
+			/*
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
-				mt.AddTask([this, span, leftOver, i]() {FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+				//mt.AddTask([this, span, leftOver, i]() {FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+				FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1));
 			}
 
 			mt.WaitForComplete();
 			*/
 
-			t1 = std::chrono::high_resolution_clock::now();
+			
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, gSpan, gLeftOver, i]() {DoSlice(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 
 			mt.WaitForComplete();
-			t2 = std::chrono::high_resolution_clock::now();
+			
 			
 			/*
 			for (int i = 0; i < particles.size(); i++)
@@ -173,9 +177,9 @@ public:
 			}
 			*/
 		}
-		
+		t2 = std::chrono::high_resolution_clock::now();
 		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
-		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
+		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
 
@@ -217,9 +221,6 @@ public:
 	}
 
 private:
-
-	int nextID = 0;
-
 	float absorption = 0.75f;
 	float drag = 1.f;
 
@@ -284,11 +285,13 @@ private:
 					continue;
 				}
 
-				float distance = sqrt(pow((particles[o].position.x - particles[i].position.x), 2) + pow((particles[o].position.y - particles[i].position.y), 2));
+				sf::Vector2f v = particles[o].position - particles[i].position;
+				float distance = (v.x * v.x) + (v.y * v.y);
 
-				if (distance < particles[o].size + particles[i].size)
+				if (distance < minCollision)
 				{
-					sf::Vector2f change = ((particles[o].position - particles[i].position) / distance) * 0.25f * (particles[o].size + particles[i].size - distance);
+					distance = sqrt(distance);
+					sf::Vector2f change = v / distance * (0.25f * (particleDiameter - distance));
 					particles[o].position += change;
 					particles[i].position -= change;
 					//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
@@ -342,6 +345,7 @@ private:
 
 	void FillRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
+		if (leftOver > 0) std::cout << "Left Over: " << leftOver << "\n";
 		uint32_t end = start + span + leftOver;
 
 		int x;
@@ -352,11 +356,12 @@ private:
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
 
-			if (x < 0 || x >= spatialHashing.columsX) continue;
-			if (y < 0 || y >= spatialHashing.rowsY) continue;
+			//if (x < 0 || x >= spatialHashing.columsX) continue;
+			//if (y < 0 || y >= spatialHashing.rowsY) continue;
 
-
-			spatialHashing.grid[y][x].emplace_back(i);
+			
+			if (y >= 0 && y < spatialHashing.rowsY && x >= 0 && x < spatialHashing.columsX) spatialHashing.grid[y][x].emplace_back(i);
+			else std::cout << "Grid " << x << ":X|Y:" << y << "  ID: " << i << "\n";
 		}
 
 	}
@@ -369,12 +374,12 @@ private:
 		{
 			for (uint32_t x = 0; x < spatialHashing.columsX; x++)
 			{
-				spatialHashing.grid[y][x].clear();
+				if (!spatialHashing.grid[y][x].empty()) spatialHashing.grid[y][x].clear();
 			}
 		}
 	}
 
-	void UpdateRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	inline void UpdateRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
 		uint32_t end = start + span + leftOver;
 
@@ -394,7 +399,7 @@ private:
 		}
 	}
 
-	void DoSlice(uint32_t start, uint32_t span, uint32_t leftOver)
+	inline void DoSlice(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
 		uint32_t end = start + span + leftOver;
 		uint32_t midPoint = start + (span / 2);

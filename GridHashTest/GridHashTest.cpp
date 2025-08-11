@@ -9,7 +9,7 @@
 #include <cmath>
 
 #include "FaultyUtilitiesMT.hpp"
-TaskSystem mt(30);
+TaskSystem mt(10);
 
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
@@ -30,7 +30,7 @@ uint32_t const sizeY = 1080;
 
 float elapsedTime = 0;
 
-float const particleSize = 2;
+float const particleSize = 2.5;
 
 int const toSpawn = 24000;
 
@@ -271,10 +271,17 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
     {
         int const index = i * 6;
 
-        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
+        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 40;
 
-        sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
-        //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
+        sf::Color color = sf::Color(speed, 0, 80);
+        //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
+        /*
+        float d = elapsedTime + ((float)i * 0.001) ;
+        uint8_t r = 255.f * sin(d) * sin(d);
+        uint8_t g = 255.f * sin(d + 0.33 * 2.f * acos(0)) * sin(d + 0.33 * 2.f * acos(0));
+        uint8_t b = 255.f * sin(d + 0.66 * 2.f * acos(0)) * sin(d + 0.66 * 2.f * acos(0));
+        sf::Color color = sf::Color(r, g, b);
+        */
 
         quad[index].color = color;
         quad[index + 1].color = color;
@@ -307,7 +314,8 @@ void OldDraw(sf::RenderWindow& window)
 
         float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
 
-        sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
+        sf::Color color = sf::Color(speed, 0, 80);
+        //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
         //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
 
         quad[index].color = color;

@@ -8,41 +8,21 @@ public:
 	sf::Vector2f lastPosition;
 	sf::Vector2f acceleration;
 
-	int ID;
-
 	float size;
 
-	template <typename V, typename F, typename I>
-	Particle(V&& pos, V&& a, F&& s, I&& i)
+	Particle(sf::Vector2f pos, sf::Vector2f a, float s)
 	{
-		position = std::forward<V>(pos);
+		position = pos;
 		lastPosition = position;
-		acceleration = std::forward<V>(a);
-
-		size = std::forward<F>(s);
-
-		ID = std::forward<I>(i);
+		acceleration = a;
+		size = s;
 	}
 
-	template <typename V>
-	void SetVelocity(V&& v)
-	{
-		lastPosition = position - v;
-	}
-	template <typename V>
-	void AddVelocity(V&& v)
-	{
-		lastPosition = GetVelocity() + v;
-	}
-	template <typename V>
-	void Accelerate(V&& a)
-	{
-		acceleration += a;
-	}
-	sf::Vector2f&& GetVelocity()
-	{
-		return position - lastPosition;
-	}
+	void SetVelocity(sf::Vector2f v) { lastPosition = position - v; }
+	void AddVelocity(sf::Vector2f v) { lastPosition = GetVelocity() + v; }
+	void Accelerate(sf::Vector2f a) { acceleration += a; }
+	sf::Vector2f&& GetVelocity() const  { return position - lastPosition; }
+
 
 	void Update(float const DT)
 	{
