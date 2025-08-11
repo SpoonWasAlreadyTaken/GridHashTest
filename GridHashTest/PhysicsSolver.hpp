@@ -53,6 +53,8 @@ public:
 		spatialHashing.columsX = boundX / spatialHashing.cellSize;
 		spatialHashing.rowsY = boundY / spatialHashing.cellSize;
 
+		std::cout << "Colums X: " << spatialHashing.columsX << " Rows Y: " << spatialHashing.rowsY << "\n";
+
 		spatialHashing.gridCount = spatialHashing.columsX * spatialHashing.rowsY;
 
 		spatialHashing.grid = new std::vector<int> * [spatialHashing.rowsY];
@@ -88,22 +90,56 @@ public:
 
 	void PhysicsUpdate()
 	{
-		t1 = std::chrono::high_resolution_clock::now();
 		
-
 		for (int step = 0; step < substeps; step++)
 		{
+			
 			uint32_t count = particles.size();
 			uint32_t span = count / mt.ActiveThreads();
 			uint32_t leftOver = count - (span * mt.ActiveThreads());
 
+			uint32_t gCount = spatialHashing.rowsY;
+			uint32_t gSpan = gCount / mt.ActiveThreads();
+			uint32_t gLeftOver = gCount - (gSpan * mt.ActiveThreads());
+
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
-				mt.AddTask([this, span, count, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+				mt.AddTask([this, span, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+			}
+			
+			mt.WaitForComplete();
+
+			
+			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
+			{
+				mt.AddTask([this, gSpan, gLeftOver, i]() {ClearRange(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 
 			mt.WaitForComplete();
+			
+			
+			spatialHashing.ClearGrid();
+			
+			FillGrid();
+			
+			/*
+			
+			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
+			{
+				mt.AddTask([this, span, leftOver, i]() {FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+			}
 
+			mt.WaitForComplete();
+			*/
+
+			t1 = std::chrono::high_resolution_clock::now();
+			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
+			{
+				mt.AddTask([this, gSpan, gLeftOver, i]() {DoSlice(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
+			}
+
+			mt.WaitForComplete();
+			t2 = std::chrono::high_resolution_clock::now();
 			
 			/*
 			for (int i = 0; i < particles.size(); i++)
@@ -137,7 +173,7 @@ public:
 			}
 			*/
 		}
-		t2 = std::chrono::high_resolution_clock::now();
+		
 		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
 		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
@@ -152,12 +188,32 @@ public:
 
 	void Force(sf::Vector2f pos, float strength)
 	{
-		for (int i = 0; i < particles.size(); i++)
+		int x = pos.x / spatialHashing.cellSize;
+		int y = pos.y / spatialHashing.cellSize;
+		int reach = 150 / spatialHashing.cellSize;
+
+		if (x < 0 || x >= spatialHashing.columsX) return;
+		if (y < 0 || y >= spatialHashing.rowsY) return;
+
+
+		for (int i = y - reach; i < y + reach; i++)
 		{
-			sf::Vector2f direction = pos - particles[i].position;
-			float distance = sqrt(pow(direction.x, 2) + pow(direction.y, 2));
-			particles[i].Accelerate(direction * std::max(0.f, (150 - distance)) * strength);
+			for (int j = x - reach; j < x + reach; j++)
+			{
+				if (j < 0 || j >= spatialHashing.columsX) continue;
+				if (i < 0 || i >= spatialHashing.rowsY) continue;
+				for (int p = 0; p < spatialHashing.grid[i][j].size(); p++)
+				{
+					
+					sf::Vector2f direction = pos - particles[spatialHashing.grid[i][j][p]].position;
+					float distance = sqrt(pow(direction.x, 2) + pow(direction.y, 2));
+					particles[spatialHashing.grid[i][j][p]].Accelerate(direction * std::max(0.f, (150 - distance)) * strength);
+					
+				}
+			}
 		}
+
+		
 	}
 
 private:
@@ -266,7 +322,7 @@ private:
 
 	void FillGrid()
 	{
-		spatialHashing.ClearGrid();
+		//spatialHashing.ClearGrid();
 
 		int x;
 		int y;
@@ -281,6 +337,40 @@ private:
 
 
 			spatialHashing.grid[y][x].emplace_back(i);
+		}
+	}
+
+	void FillRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	{
+		uint32_t end = start + span + leftOver;
+
+		int x;
+		int y;
+
+		for (uint32_t i = start; i < end; i++)
+		{
+			x = particles[i].position.x / spatialHashing.cellSize;
+			y = particles[i].position.y / spatialHashing.cellSize;
+
+			if (x < 0 || x >= spatialHashing.columsX) continue;
+			if (y < 0 || y >= spatialHashing.rowsY) continue;
+
+
+			spatialHashing.grid[y][x].emplace_back(i);
+		}
+
+	}
+
+	void ClearRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	{
+		uint32_t end = start + span + leftOver;
+
+		for (uint32_t y = start; y < end; y++)
+		{
+			for (uint32_t x = 0; x < spatialHashing.columsX; x++)
+			{
+				spatialHashing.grid[y][x].clear();
+			}
 		}
 	}
 
@@ -306,6 +396,23 @@ private:
 
 	void DoSlice(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
+		uint32_t end = start + span + leftOver;
+		uint32_t midPoint = start + (span / 2);
+		
+		for (int y = start; y < midPoint; y++)
+		{
+			for (int x = 0; x < spatialHashing.columsX; x++)
+			{
+				if (!spatialHashing.grid[y][x].empty()) CheckGrid(y, x);
+			}
+		}
 
+		for (int y = midPoint; y < end; y++)
+		{
+			for (int x = 0; x < spatialHashing.columsX; x++)
+			{
+				if (!spatialHashing.grid[y][x].empty()) CheckGrid(y, x);
+			}
+		}
 	}
 };

@@ -32,7 +32,11 @@ float elapsedTime = 0;
 
 float const particleSize = 2;
 
-int const toSpawn = 12000;
+int const toSpawn = 24000;
+
+sf::ContextSettings settings;
+
+
 
 
 
@@ -62,7 +66,7 @@ int main()
     int steps = 0;
     bool stopGap = true;
     bool stopGap2 = true;
-    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
+    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed, settings);
 
     for (int i = 0; i < vertexBuffer / 6; i++)
     {
