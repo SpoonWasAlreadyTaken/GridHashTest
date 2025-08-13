@@ -15,7 +15,7 @@ public:
 	float gravityMultiplier = 1.f;
 	bool gravityON = false;
 
-	float DT = 0.001;
+	float DT = 0.01;
 
 	float spawnLocX;
 	float spawnLocY;

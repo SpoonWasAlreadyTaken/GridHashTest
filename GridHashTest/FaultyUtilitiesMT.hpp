@@ -15,7 +15,7 @@ private:
 	uint8_t activeThreads;
 
 	std::vector<std::thread> workers;
-	bool running;
+	std::atomic_bool running;
 
 	std::mutex mutex;
 
