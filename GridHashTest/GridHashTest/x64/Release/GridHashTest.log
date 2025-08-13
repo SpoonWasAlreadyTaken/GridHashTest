@@ -95,13 +95,13 @@ C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(127,7
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(127,76): warning C4244:             T=float
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(127,76): warning C4244:         ]
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(151,18): warning C4244: '+=': conversion from 'float' to 'int', possible loss of data
-C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(207,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
-C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(212,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
-C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(247,20): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
-C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(271,23): warning C4244: 'initializing': conversion from 'float' to 'uint8_t', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(213,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(218,31): warning C4244: 'initializing': conversion from 'uint32_t' to 'float', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(253,20): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(277,23): warning C4244: 'initializing': conversion from 'float' to 'uint8_t', possible loss of data
   Generating code
-  Previous IPDB and IOBJ mismatch, fall back to full compilation.
-C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\Particle.hpp(24): warning C4172: returning address of local variable or temporary
-  All 1032 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  2 of 997 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+    1 functions were new in current compilation
+    3 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GridHashTest.vcxproj -> C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Release\GridHashTest.exe

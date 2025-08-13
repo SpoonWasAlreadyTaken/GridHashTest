@@ -201,6 +201,12 @@ int main()
                 stopGap = false;
                 break;
             }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && stopGap)
+            {
+                for (uint32_t p = 0; p < physicsSolver.particles.size(); p++) physicsSolver.particles[p].Stop();
+                stopGap = false;
+                break;
+            }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {

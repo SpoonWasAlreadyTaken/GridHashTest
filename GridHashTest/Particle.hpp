@@ -21,6 +21,7 @@ public:
 	void SetVelocity(sf::Vector2f v) { lastPosition = position - v; }
 	void AddVelocity(sf::Vector2f v) { lastPosition = GetVelocity() + v; }
 	void Accelerate(sf::Vector2f a) { acceleration += a; }
+	void Stop() { lastPosition = position; }
 	sf::Vector2f&& GetVelocity() const  { return position - lastPosition; }
 
 
