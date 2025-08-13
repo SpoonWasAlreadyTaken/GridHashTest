@@ -93,7 +93,7 @@ public:
 
 	void PhysicsUpdate()
 	{
-		t1 = std::chrono::high_resolution_clock::now();
+
 
 		uint32_t count = particles.size();
 		uint32_t span = count / mt.ActiveThreads();
@@ -105,25 +105,26 @@ public:
 
 		for (int step = 0; step < substeps; step++)
 		{
+			t1 = std::chrono::high_resolution_clock::now();
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, span, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 			
 			mt.WaitForComplete();
-
+			t2 = std::chrono::high_resolution_clock::now();
 			
-			/*
+			
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, gSpan, gLeftOver, i]() {ClearRange(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 
 			mt.WaitForComplete();
-			*/
 			
 			
-			spatialHashing.ClearGrid();
+
+			//spatialHashing.ClearGrid();
 			
 			FillGrid();
 			
@@ -131,12 +132,13 @@ public:
 			/*
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
-				//mt.AddTask([this, span, leftOver, i]() {FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
-				FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1));
+				mt.AddTask([this, span, leftOver, i]() {FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
+				//FillRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1));
 			}
 
 			mt.WaitForComplete();
 			*/
+
 
 			
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
@@ -146,7 +148,7 @@ public:
 
 			mt.WaitForComplete();
 		}
-		t2 = std::chrono::high_resolution_clock::now();
+		
 		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
 		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
@@ -196,9 +198,6 @@ private:
 	int boundX;
 	int boundY;
 
-	int checkX[5] = {0, 1, -1, 0, 1};
-	int checkY[5] = {0, 0, 1, 1, 1};
-
 
 	int substeps;
 	float subDT;
@@ -208,11 +207,11 @@ private:
 		sf::Vector2f dx = { -particles[index].GetVelocity().x, particles[index].GetVelocity().y};
 		sf::Vector2f dy = { particles[index].GetVelocity().x, -particles[index].GetVelocity().y };
 
-		if (particles[index].position.x + particles[index].size * 2 > boundX || particles[index].position.x < 0)
+		if (particles[index].position.x + particleDiameter > boundX || particles[index].position.x < 0)
 		{
-			if (particles[index].position.x + particles[index].size * 2 > boundX)
+			if (particles[index].position.x + particleDiameter > boundX)
 			{
-				particles[index].position.x = boundX - particles[index].size * 2;
+				particles[index].position.x = boundX - particleDiameter;
 			}
 			if (particles[index].position.x < 0)
 			{
@@ -220,11 +219,11 @@ private:
 			}
 			particles[index].SetVelocity(dx * absorption);
 		}
-		if (particles[index].position.y + particles[index].size * 2 > boundY || particles[index].position.y< 0)
+		if (particles[index].position.y + particleDiameter > boundY || particles[index].position.y< 0)
 		{
-			if (particles[index].position.y + particles[index].size * 2 > boundY)
+			if (particles[index].position.y + particleDiameter > boundY)
 			{
-				particles[index].position.y = boundY - particles[index].size * 2;
+				particles[index].position.y = boundY - particleDiameter;
 			}
 			if (particles[index].position.y < 0)
 			{
@@ -240,55 +239,42 @@ private:
 	}
 
 	
-	void ParticleCollision(int sY, int sX, int tY, int tX)
+	inline void ParticleCollision(uint32_t id, uint32_t yID, uint32_t xID)
 	{
-		for (int s = 0; s < spatialHashing.grid[sY][sX].size(); s++)
+		if (yID >= spatialHashing.rowsY || xID >= spatialHashing.columsX || yID < 0 || xID < 0) return;
+		for (uint32_t i = 0; i < spatialHashing.grid[yID][xID].size(); i++)
 		{
-			for (int t = 0; t < spatialHashing.grid[tY][tX].size(); t++)
+			if (id == spatialHashing.grid[yID][xID][i]) continue;
+			
+
+			sf::Vector2f v = particles[id].position - particles[spatialHashing.grid[yID][xID][i]].position;
+			float distance = (v.x * v.x) + (v.y * v.y);
+
+			if (distance < minCollision)
 			{
-				int o = spatialHashing.grid[sY][sX][s];
-				int i = spatialHashing.grid[tY][tX][t];
-
-				if (spatialHashing.grid[sY][sX][s] == spatialHashing.grid[tY][tX][t])
-				{
-					continue;
-				}
-
-				sf::Vector2f v = particles[o].position - particles[i].position;
-				float distance = (v.x * v.x) + (v.y * v.y);
-
-				if (distance < minCollision)
-				{
-					distance = sqrt(distance);
-					sf::Vector2f change = v / distance * (0.25f * (particleDiameter - distance));
-					particles[o].position += change;
-					particles[i].position -= change;
-					//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
-				}
+				distance = sqrt(distance);
+				sf::Vector2f change = v / distance * (0.25f * (particleDiameter - distance));
+				particles[id].position += change;
+				particles[spatialHashing.grid[yID][xID][i]].position -= change;
+				//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
 			}
 		}
 	}
 	
 
-	void CheckGrid(int gridY, int gridX)
+	inline void CheckGrid(uint32_t yID, uint32_t xID)
 	{
-		int newX;
-		int newY;
-
-		for (int i = 0; i < 5; i++)
+		for (uint32_t i = 0; i < spatialHashing.grid[yID][xID].size(); i++)
 		{
-			newY = gridY + checkY[i];
-			newX = gridX + checkX[i];
-
-			if (newX < 0 || newY < 0 || newX >= spatialHashing.columsX || newY >= spatialHashing.rowsY)
-			{
-				continue;
-			}
-
-			if (!spatialHashing.grid[newY][newX].empty())
-			{
-				ParticleCollision(gridY, gridX, newY, newX);
-			}
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID, xID);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID - 1, xID - 1);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID - 1, xID);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID - 1, xID + 1);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID, xID - 1);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID, xID + 1);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID + 1, xID - 1);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID + 1, xID);
+			ParticleCollision(spatialHashing.grid[yID][xID][i], yID + 1, xID + 1);
 		}
 	}
 
@@ -304,17 +290,13 @@ private:
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
 
-			if (x < 0 || x >= spatialHashing.columsX) continue;
-			if (y < 0 || y >= spatialHashing.rowsY) continue;
-
-
+			if (y < 0 || y >= spatialHashing.rowsY || x < 0 || x >= spatialHashing.columsX) continue;
 			spatialHashing.grid[y][x].emplace_back(i);
 		}
 	}
 
-	void FillRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	inline void FillRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
-		if (leftOver > 0) std::cout << "Left Over: " << leftOver << "\n";
 		uint32_t end = start + span + leftOver;
 
 		int x;
@@ -325,17 +307,14 @@ private:
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
 
-			//if (x < 0 || x >= spatialHashing.columsX) continue;
-			//if (y < 0 || y >= spatialHashing.rowsY) continue;
-
-			
-			if (y >= 0 && y < spatialHashing.rowsY && x >= 0 && x < spatialHashing.columsX) spatialHashing.grid[y][x].emplace_back(i);
-			else std::cout << "Grid " << x << ":X|Y:" << y << "  ID: " << i << "\n";
+			if (x < 0 || x >= spatialHashing.columsX) continue;
+			if (y < 0 || y >= spatialHashing.rowsY) continue;
+			spatialHashing.grid[y][x].emplace_back(i);
 		}
 
 	}
 
-	void ClearRange(uint32_t start, uint32_t span, uint32_t leftOver)
+	inline void ClearRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
 		uint32_t end = start + span + leftOver;
 		for (uint32_t y = start; y < end; y++) for (uint32_t x = 0; x < spatialHashing.columsX; x++) spatialHashing.grid[y][x].clear();

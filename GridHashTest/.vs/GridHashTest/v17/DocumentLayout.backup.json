@@ -3,16 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|solutionrelative:GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\PhysicsSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:PhysicsSolver.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xutility||{3B902123-F8A7-4915-9F01-361F908088D0}|"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\FaultyUtilitiesMT.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:FaultyUtilitiesMT.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|solutionrelative:GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\Particle.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -34,21 +37,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "GridHashTest.cpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp",
               "RelativeDocumentMoniker": "GridHashTest.cpp",
               "ToolTip": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp",
               "RelativeToolTip": "GridHashTest.cpp",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACAAAAAcAAAAAAAAAA==",
+              "ViewState": "AgIAAK4AAAAAAAAAAAAAAMkAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-01-26T14:40:28.365Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "xutility",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xutility",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xutility",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xutility",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\xutility",
+              "ViewState": "AgIAAIESAAAAAAAAAAASwI4SAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-13T20:28:40.337Z"
             },
             {
               "$type": "Document",
@@ -58,14 +72,13 @@
               "RelativeDocumentMoniker": "FaultyUtilitiesMT.hpp",
               "ToolTip": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\FaultyUtilitiesMT.hpp",
               "RelativeToolTip": "FaultyUtilitiesMT.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAAAGkAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-08-10T16:41:20.86Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-10T16:41:20.86Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Particle.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\Particle.hpp",
               "RelativeDocumentMoniker": "Particle.hpp",
@@ -73,25 +86,24 @@
               "RelativeToolTip": "Particle.hpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-01-30T10:57:15.83Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-01-30T10:57:15.83Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "PhysicsSolver.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\PhysicsSolver.hpp",
               "RelativeDocumentMoniker": "PhysicsSolver.hpp",
               "ToolTip": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\PhysicsSolver.hpp",
               "RelativeToolTip": "PhysicsSolver.hpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAHEAAAAAAAAAAAASwIMAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-30T10:54:50.56Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "SpatialHashing.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\SpatialHashing.hpp",
               "RelativeDocumentMoniker": "SpatialHashing.hpp",
@@ -103,7 +115,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "FaultyUtilities.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\FaultyUtilities.hpp",
               "RelativeDocumentMoniker": "FaultyUtilities.hpp",
