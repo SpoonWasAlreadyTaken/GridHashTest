@@ -13,7 +13,7 @@ TaskSystem mt(12);
 
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
-std::chrono::milliseconds singleMS;
+std::chrono::microseconds singleMS;
 
 #include "PhysicsSolver.hpp"
 #include "Particle.hpp"
@@ -258,7 +258,7 @@ void Draw(sf::RenderWindow& window)
     mt.WaitForComplete();
     window.draw(quad, &sprite);
     t2 = std::chrono::high_resolution_clock::now();
-    singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+    singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
     //std::cout << "Draw Time: " << singleMS.count() << "\n";
 }
 
@@ -312,7 +312,8 @@ void OldDraw(sf::RenderWindow& window)
     {
         int const index = i * 6;
 
-        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 20;
+        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 20;
+        if (speed > 250) std::cout << "Speed Limit Exceeded: " << speed << "\n";
 
         sf::Color color = sf::Color(speed, 0, 80);
         //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
@@ -337,6 +338,6 @@ void OldDraw(sf::RenderWindow& window)
     }
     window.draw(quad, &sprite);
     t2 = std::chrono::high_resolution_clock::now();
-    singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+    singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
     std::cout << "Draw Time: " << singleMS.count() << "\n";
 }

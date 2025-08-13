@@ -15,7 +15,7 @@ public:
 	float gravityMultiplier = 1.f;
 	bool gravityON = false;
 
-	float DT = 0.01;
+	float DT = 0.001;
 
 	float spawnLocX;
 	float spawnLocY;
@@ -147,7 +147,7 @@ public:
 			mt.WaitForComplete();
 		}
 		t2 = std::chrono::high_resolution_clock::now();
-		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
+		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
 		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
