@@ -413,3 +413,40 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+# --- Build artefacts -------------------------------------------------
+build/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.dylib
+*.a
+*.lib
+.cache/
+compile_commands.json
+
+# --- IDE / Editor droppings ------------------------------------------
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# --- User-specific files ---------------------------------------------
+CMakeSettings.json               # Visual Studio CMake settings (path, toolchain, etc.)
+CMakeUserPresets.json            # CMake user presets
+
+# --- OS junk ---------------------------------------------------------
+.DS_Store
+Thumbs.db
+
+# --- Third-party -----------------------------------------------------
+
+thirdparty/SFML-2.6.1
+
+# --- Test samples ----------------------------------------------------
+test samples/**/*.exe
+test samples/**/*.out
+test samples/build/

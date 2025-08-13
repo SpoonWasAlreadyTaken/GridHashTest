@@ -11,11 +11,11 @@
 class TaskSystem
 {
 private:
-	uint8_t maxThreads;
-	uint8_t activeThreads;
+	int maxThreads;
+	int activeThreads;
 
 	std::vector<std::thread> workers;
-	bool running;
+	std::atomic_bool running;
 
 	std::mutex mutex;
 
@@ -26,7 +26,7 @@ private:
 	// public and private functions
 public:
 
-	TaskSystem(uint8_t toStart = 0) // toStart = worker threads to initialize, leave at 0 for max
+	TaskSystem(int toStart = 0) // toStart = worker threads to initialize, leave at 0 for max
 	{
 		maxThreads = std::thread::hardware_concurrency();
 		workers.reserve(maxThreads);
@@ -36,7 +36,7 @@ public:
 		if (toStart <= maxThreads && toStart > 0) activeThreads = toStart;
 		else activeThreads = maxThreads;
 
-		for (uint8_t i = 0; i < activeThreads; i++) workers.emplace_back(&TaskSystem::Worker, this);
+		for (int i = 0; i < activeThreads; i++) workers.emplace_back(&TaskSystem::Worker, this);
 	}
 
 	~TaskSystem() // stops all workers threads
@@ -46,7 +46,7 @@ public:
 			running = false;
 		}
 
-		for (uint8_t i = 0; i < workers.size(); i++) workers[i].join();
+		for (int i = 0; i < workers.size(); i++) workers[i].join();
 	}
 
 
@@ -59,7 +59,7 @@ public:
 
 	uint8_t MaxThreads() const { return maxThreads; } // returns max thread count
 	uint8_t ActiveThreads() const { return activeThreads; } // returns active thread count
-	
+
 
 	template <typename F, typename... Args>
 	inline void AddTask(F&& f, Args&&... args) // adds a function to the task queue for threads to execute, to pass a templated function must pass the template values in <> example: func<int, int>
@@ -78,12 +78,12 @@ public:
 	{
 		while (!taskQueue.empty()) std::this_thread::yield();
 	}
-	 
+
 
 private:
 
 	void Worker()
-	{	
+	{
 		std::function<void()> task = nullptr;
 		while (running)
 		{

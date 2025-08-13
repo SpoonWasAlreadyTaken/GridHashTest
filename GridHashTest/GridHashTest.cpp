@@ -9,7 +9,7 @@
 #include <cmath>
 
 #include "FaultyUtilitiesMT.hpp"
-TaskSystem mt(12);
+TaskSystem mt(10);
 
 std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
@@ -30,11 +30,9 @@ uint32_t const sizeY = 1080;
 
 float elapsedTime = 0;
 
-float const particleSize = 2.5;
+float const particleSize = 2;
 
-int const toSpawn = 24000;
-
-sf::ContextSettings settings;
+int const toSpawn = 80000;
 
 
 
@@ -42,7 +40,6 @@ sf::ContextSettings settings;
 
 // function declerations
 void Draw(sf::RenderWindow& window);
-void OldDraw(sf::RenderWindow& window);
 void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver);
 
 
@@ -66,7 +63,7 @@ int main()
     int steps = 0;
     bool stopGap = true;
     bool stopGap2 = true;
-    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed, settings);
+    sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
 
     for (int i = 0; i < vertexBuffer / 6; i++)
     {
@@ -271,8 +268,7 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
     {
         int const index = i * 6;
 
-        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 70) + 40;
-
+        uint8_t speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 40;
         sf::Color color = sf::Color(speed, 0, 80);
         //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
         /*
@@ -302,42 +298,3 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
     }
 }
 
-void OldDraw(sf::RenderWindow& window)
-{
-
-
-
-    t1 = std::chrono::high_resolution_clock::now();
-    for (int i = 0; i < physicsSolver.particles.size(); i++)
-    {
-        int const index = i * 6;
-
-        float speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 20;
-        if (speed > 250) std::cout << "Speed Limit Exceeded: " << speed << "\n";
-
-        sf::Color color = sf::Color(speed, 0, 80);
-        //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
-        //sf::Color color = sf::Color(cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 1) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 2) * 100 + 155, cos((elapsedTime + ((float)i * 0.01)) * acos(0) * 3) * 100 + 155);
-
-        quad[index].color = color;
-        quad[index + 1].color = color;
-        quad[index + 2].color = color;
-
-        quad[index + 3].color = color;
-        quad[index + 4].color = color;
-        quad[index + 5].color = color;
-
-        // position assignment
-        quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
-        quad[index + 1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index + 2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-
-        quad[index + 3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-        quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-    }
-    window.draw(quad, &sprite);
-    t2 = std::chrono::high_resolution_clock::now();
-    singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
-    std::cout << "Draw Time: " << singleMS.count() << "\n";
-}
