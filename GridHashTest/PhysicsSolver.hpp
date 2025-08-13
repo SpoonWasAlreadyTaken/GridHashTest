@@ -94,17 +94,17 @@ public:
 	void PhysicsUpdate()
 	{
 		t1 = std::chrono::high_resolution_clock::now();
+
+		uint32_t count = particles.size();
+		uint32_t span = count / mt.ActiveThreads();
+		uint32_t leftOver = count - (span * mt.ActiveThreads());
+
+		uint32_t gCount = spatialHashing.rowsY;
+		uint32_t gSpan = gCount / mt.ActiveThreads();
+		uint32_t gLeftOver = gCount - (gSpan * mt.ActiveThreads());
+
 		for (int step = 0; step < substeps; step++)
 		{
-			
-			uint32_t count = particles.size();
-			uint32_t span = count / mt.ActiveThreads();
-			uint32_t leftOver = count - (span * mt.ActiveThreads());
-
-			uint32_t gCount = spatialHashing.rowsY;
-			uint32_t gSpan = gCount / mt.ActiveThreads();
-			uint32_t gLeftOver = gCount - (gSpan * mt.ActiveThreads());
-
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, span, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
@@ -112,6 +112,7 @@ public:
 			
 			mt.WaitForComplete();
 
+			
 			/*
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
@@ -120,6 +121,7 @@ public:
 
 			mt.WaitForComplete();
 			*/
+			
 			
 			spatialHashing.ClearGrid();
 			
@@ -143,39 +145,6 @@ public:
 			}
 
 			mt.WaitForComplete();
-			
-			
-			/*
-			for (int i = 0; i < particles.size(); i++)
-			{
-				if (gravityON)
-				{
-					//particles[i].acceleration += (sf::Vector2f(boundX * 0.5, boundY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
-					particles[i].acceleration += gravity * gravityMultiplier / DT;
-
-				}
-
-				EdgeCheck(i);
-
-				particles[i].Update(subDT);
-					
-			}
-			*/
-
-			/*
-			FillGrid();
-
-			for (int y = 0; y < spatialHashing.rowsY; y++)
-			{
-				for (int x = 0; x < spatialHashing.columsX; x++)
-				{
-					if (!spatialHashing.grid[y][x].empty())
-					{
-						CheckGrid(y, x);
-					}
-				}
-			}
-			*/
 		}
 		t2 = std::chrono::high_resolution_clock::now();
 		singleMS = duration_cast<std::chrono::milliseconds>(t2 - t1);
@@ -265,7 +234,7 @@ private:
 		}
 	}
 
-	sf::Vector2f ObjectCollision(sf::Vector2f const v, sf::Vector2f const n) 
+	sf::Vector2f ObjectCollision(sf::Vector2f const v, sf::Vector2f const n) const
 	{
 		return (2 * (v.x * n.x + v.y * n.y) * n - v ) * absorption;
 	}
@@ -369,14 +338,7 @@ private:
 	void ClearRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
 		uint32_t end = start + span + leftOver;
-
-		for (uint32_t y = start; y < end; y++)
-		{
-			for (uint32_t x = 0; x < spatialHashing.columsX; x++)
-			{
-				if (!spatialHashing.grid[y][x].empty()) spatialHashing.grid[y][x].clear();
-			}
-		}
+		for (uint32_t y = start; y < end; y++) for (uint32_t x = 0; x < spatialHashing.columsX; x++) spatialHashing.grid[y][x].clear();
 	}
 
 	inline void UpdateRange(uint32_t start, uint32_t span, uint32_t leftOver)
