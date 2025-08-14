@@ -93,7 +93,7 @@ public:
 
 	void PhysicsUpdate()
 	{
-
+		
 
 		uint32_t count = particles.size();
 		uint32_t span = count / mt.ActiveThreads();
@@ -105,14 +105,14 @@ public:
 
 		for (int step = 0; step < substeps; step++)
 		{
-			t1 = std::chrono::high_resolution_clock::now();
+			
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, span, leftOver, i]() {UpdateRange(i * span, span, leftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 			
 			mt.WaitForComplete();
-			t2 = std::chrono::high_resolution_clock::now();
+			
 			
 			
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
@@ -140,17 +140,18 @@ public:
 			*/
 
 
-			
+			t1 = std::chrono::high_resolution_clock::now();
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, gSpan, gLeftOver, i]() {DoSlice(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 
 			mt.WaitForComplete();
+			t2 = std::chrono::high_resolution_clock::now();
 		}
 		
 		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
-		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
+		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
 
