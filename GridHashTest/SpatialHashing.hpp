@@ -7,32 +7,20 @@
 class SpatialHashing
 {
 public:
-	std::vector<int> **grid = NULL;
+	std::vector<std::vector<int>> grid;
 
 	int cellSize;
 
-	int columsX;
-	int rowsY;
+	int gridX;
+	int gridY;
 
 	int gridCount;
 
-		
+
 	void ClearGrid()
 	{
-		for (int i = 0; i < rowsY; i++)
-		{
-			for (int j = 0; j < columsX; j++)
-			{
-				if (!grid[i][j].empty())
-				{
-					grid[i][j].clear();
-				}
-			}
-		}
+		for (int i = 0; i < grid.size(); i++) grid[i].clear();
 	}
-
-
-private:
 
 
 
