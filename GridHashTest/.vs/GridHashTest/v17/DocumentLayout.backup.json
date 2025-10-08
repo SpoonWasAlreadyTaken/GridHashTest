@@ -11,9 +11,6 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:SpatialHashing.hpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional||{3B902123-F8A7-4915-9F01-361F908088D0}|"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{F2185984-F7DF-49EB-8918-68A4003C0BFC}|GridHashTest.vcxproj|solutionrelative:GridHashTest.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -37,11 +34,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "GridHashTest.cpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\GridHashTest.cpp",
               "RelativeDocumentMoniker": "GridHashTest.cpp",
@@ -55,20 +52,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "functional",
-              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
-              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.44.35207\\include\\functional",
-              "ViewState": "AgIAAFsDAAAAAAAAAAAWwG8DAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-10-08T18:39:41.955Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 4,
               "Title": "FaultyUtilitiesMT.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\FaultyUtilitiesMT.hpp",
               "RelativeDocumentMoniker": "FaultyUtilitiesMT.hpp",
@@ -80,7 +64,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 5,
               "Title": "Particle.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\Particle.hpp",
               "RelativeDocumentMoniker": "Particle.hpp",
@@ -98,7 +82,7 @@
               "RelativeDocumentMoniker": "PhysicsSolver.hpp",
               "ToolTip": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\PhysicsSolver.hpp",
               "RelativeToolTip": "PhysicsSolver.hpp",
-              "ViewState": "AgIAACcBAAAAAAAAAAAAADcBAABJAAAAAAAAAA==",
+              "ViewState": "AgIAANQAAAAAAAAAAAAAANsAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-01-30T10:54:50.56Z",
               "EditorCaption": ""
@@ -118,7 +102,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 3,
               "Title": "FaultyUtilities.hpp",
               "DocumentMoniker": "C:\\Users\\Spoon\\Documents\\GitHub\\GridHashTest\\GridHashTest\\FaultyUtilities.hpp",
               "RelativeDocumentMoniker": "FaultyUtilities.hpp",

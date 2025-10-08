@@ -142,7 +142,7 @@ public:
 		}
 		
 		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
-		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
+		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
 
