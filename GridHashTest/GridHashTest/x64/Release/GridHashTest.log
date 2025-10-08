@@ -83,6 +83,7 @@ C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(83,17
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(84,17): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(100,24): warning C4834: discarding return value of function with [[nodiscard]] attribute
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(101,26): warning C4834: discarding return value of function with [[nodiscard]] attribute
+C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(107,13): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(114,22): warning C4834: discarding return value of function with [[nodiscard]] attribute
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(127,115): warning C4244: 'argument': conversion from 'int' to 'T', possible loss of data
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(127,115): warning C4244:         with
@@ -100,8 +101,8 @@ C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(218,3
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(253,20): warning C4267: 'initializing': conversion from 'size_t' to 'uint32_t', possible loss of data
 C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\GridHashTest.cpp(277,23): warning C4244: 'initializing': conversion from 'float' to 'uint8_t', possible loss of data
   Generating code
-  13 of 997 functions ( 1.3%) were compiled, the rest were copied from previous compilation.
+  8 of 997 functions ( 0.8%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    0 functions had inline decision re-evaluated but remain unchanged
+    16 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
   GridHashTest.vcxproj -> C:\Users\Spoon\Documents\GitHub\GridHashTest\GridHashTest\x64\Release\GridHashTest.exe

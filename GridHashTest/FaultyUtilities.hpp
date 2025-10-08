@@ -3,8 +3,8 @@
 
 std::random_device rd;
 
-template <typename T, typename Y>
-int RandomNumber(T&& min, Y&& max) // generates a random number based on input parameters
+template <typename T>
+T RandomNumber(T&& min, T&& max) // generates a random number based on input parameters
 {
     std::uniform_int_distribution<> distr(min, max);
     return distr(rd);
