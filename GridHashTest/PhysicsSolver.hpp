@@ -90,7 +90,7 @@ public:
 		uint32_t span = count / mt.ActiveThreads();
 		uint32_t leftOver = count - (span * mt.ActiveThreads());
 
-		uint32_t gCount = spatialHashing.gridY;
+		uint32_t gCount = spatialHashing.gridCount;
 		uint32_t gSpan = gCount / mt.ActiveThreads();
 		uint32_t gLeftOver = gCount - (gSpan * mt.ActiveThreads());
 
@@ -231,15 +231,16 @@ private:
 	}
 
 	
-	inline void ParticleCollision(uint32_t id, uint32_t yID, uint32_t xID)
+	inline void ParticleCollision(uint32_t id, uint32_t yxID)
 	{
-		if (yID >= spatialHashing.gridY || xID >= spatialHashing.gridX || yID < 0 || xID < 0) return;
-		for (uint32_t i = 0; i < spatialHashing.grid[TwoToOneD(yID, xID)].size(); i++)
+		//std::cout << "yxID: " << yxID << "\n";
+		if (yxID < 0 || yxID >= spatialHashing.gridCount) return;
+		for (uint32_t i = 0; i < spatialHashing.grid[yxID].size(); i++)
 		{
-			if (id == spatialHashing.grid[TwoToOneD(yID, xID)][i]) continue;
+			if (id == spatialHashing.grid[yxID][i]) continue;
 			
 
-			sf::Vector2f v = particles[id].position - particles[spatialHashing.grid[TwoToOneD(yID, xID)][i]].position;
+			sf::Vector2f v = particles[id].position - particles[spatialHashing.grid[yxID][i]].position;
 			float distance = (v.x * v.x) + (v.y * v.y);
 
 			if (distance < minCollision)
@@ -247,26 +248,26 @@ private:
 				distance = sqrt(distance);
 				sf::Vector2f change = v / distance * (0.25f * (particleDiameter - distance));
 				particles[id].position += change;
-				particles[spatialHashing.grid[TwoToOneD(yID, xID)][i]].position -= change;
+				particles[spatialHashing.grid[yxID][i]].position -= change;
 				//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
 			}
 		}
 	}
 	
 
-	inline void CheckGrid(uint32_t yID, uint32_t xID)
+	inline void CheckGrid(uint32_t yxID)
 	{
-		for (uint32_t i = 0; i < spatialHashing.grid[TwoToOneD(yID, xID)].size(); i++)
+		for (uint32_t i = 0; i < spatialHashing.grid[yxID].size(); i++)
 		{
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID, xID);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID - 1, xID - 1);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID - 1, xID);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID - 1, xID + 1);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID, xID - 1);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID, xID + 1);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID + 1, xID - 1);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID + 1, xID);
-			ParticleCollision(spatialHashing.grid[TwoToOneD(yID, xID)][i], yID + 1, xID + 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID - spatialHashing.gridX - 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID - spatialHashing.gridX);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID - spatialHashing.gridX + 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID - 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID + 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID + spatialHashing.gridX - 1);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID + spatialHashing.gridX);
+			ParticleCollision(spatialHashing.grid[yxID][i], yxID + spatialHashing.gridX + 1);
 		}
 	}
 
@@ -311,7 +312,7 @@ private:
 	inline void ClearRange(uint32_t start, uint32_t span, uint32_t leftOver)
 	{
 		uint32_t end = start + span + leftOver;
-		for (uint32_t y = start; y < end; y++) for (uint32_t x = 0; x < spatialHashing.gridX; x++) spatialHashing.grid[TwoToOneD(y, x)].clear();
+		for (uint32_t i = start; i < end; i++) spatialHashing.grid[i].clear();
 	}
 
 	inline void UpdateRange(uint32_t start, uint32_t span, uint32_t leftOver)
@@ -339,20 +340,13 @@ private:
 		uint32_t end = start + span + leftOver;
 		uint32_t midPoint = start + (span / 2);
 		
-		for (int y = start; y < midPoint; y++)
-		{
-			for (int x = 0; x < spatialHashing.gridX; x++)
-			{
-				if (!spatialHashing.grid[TwoToOneD(y, x)].empty()) CheckGrid(y, x);
-			}
+		for (int i = start; i < midPoint; i++) 
+		{ 
+			CheckGrid(i); 
 		}
-
-		for (int y = midPoint; y < end; y++)
-		{
-			for (int x = 0; x < spatialHashing.gridX; x++)
-			{
-				if (!spatialHashing.grid[TwoToOneD(y,x)].empty()) CheckGrid(y, x);
-			}
+		for (int i = midPoint; i < end; i++) 
+		{ 
+			CheckGrid(i); 
 		}
 	}
 
