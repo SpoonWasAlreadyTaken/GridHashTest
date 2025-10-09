@@ -12,7 +12,8 @@ public:
 
 	sf::Vector2f gravity = sf::Vector2f(0, 9.81);
 
-	float gravityMultiplier = 1.f;
+	float gravityMultiplier = 1;
+	float forceMultiplier = 1;
 	bool gravityON = false;
 
 	float DT = 0.01;
@@ -142,7 +143,7 @@ public:
 		}
 		
 		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
-		std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
+		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 
 

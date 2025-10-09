@@ -15,13 +15,6 @@ std::chrono::steady_clock::time_point t1;
 std::chrono::steady_clock::time_point t2;
 std::chrono::microseconds singleMS;
 
-#include "PhysicsSolver.hpp"
-#include "Particle.hpp"
-#include "SpatialHashing.hpp"
-#include "FaultyUtilities.hpp"
-
-
-
 
 // variable decleration
 
@@ -29,12 +22,18 @@ uint32_t const sizeX = 1920;
 uint32_t const sizeY = 1080;
 
 float elapsedTime = 0;
+float deltaTime = 0;
 
 float const particleSize = 2;
 
 int const toSpawn = 80000;
 
 
+
+#include "PhysicsSolver.hpp"
+#include "Particle.hpp"
+#include "SpatialHashing.hpp"
+#include "FaultyUtilities.hpp"
 
 
 
@@ -62,7 +61,6 @@ int main()
 {
     int steps = 0;
     bool stopGap = true;
-    bool stopGap2 = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
 
     for (int i = 0; i < vertexBuffer / 6; i++)
@@ -103,7 +101,6 @@ int main()
      
     // fps code
     sf::Clock clock;
-    float currentTime = 0;
     int fps = 0.f;
     int avgFPS = 0;
     float ms = 0;
@@ -147,10 +144,11 @@ int main()
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
 
-        currentTime = clock.restart().asSeconds();
-        fps += 1 / currentTime;
-        ms += currentTime;
-        elapsedTime += currentTime;
+        deltaTime = clock.restart().asSeconds();
+
+        fps += 1 / deltaTime;
+        ms += deltaTime;
+        elapsedTime += deltaTime;
 
         if (steps == 10)
         {
@@ -161,6 +159,7 @@ int main()
             fps = 0;
             ms = 0;
             steps = 0;
+            stopGap = true;
         }
         steps++;
 
@@ -174,49 +173,63 @@ int main()
                 window.close();
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && stopGap)
             {
                 physicsSolver.gravity = physicsSolver.gravity.rotatedBy(sf::degrees(45));
                 std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && stopGap)
             {
                 physicsSolver.gravity = physicsSolver.gravity.rotatedBy(sf::degrees(-45));
                 std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && stopGap)
             {
-                physicsSolver.gravityMultiplier *= 2.f;
+                physicsSolver.gravityMultiplier *= 2;
                 std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && stopGap)
             {
-                physicsSolver.gravityMultiplier /= 2.f;
+                physicsSolver.gravityMultiplier /= 2;
                 std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
+                stopGap = false;
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::G) && stopGap)
             {
                 physicsSolver.GravitySwitch();
                 std::cout << "Gravity: " << physicsSolver.gravityON << "\n";
                 stopGap = false;
-                break;
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && stopGap)
             {
                 for (uint32_t p = 0; p < physicsSolver.particles.size(); p++) physicsSolver.particles[p].Stop();
                 stopGap = false;
-                break;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Add) && stopGap)
+            {
+                physicsSolver.forceMultiplier *= 1.1;
+                std::cout << "Force Multiplier: " << physicsSolver.forceMultiplier << "\n";
+                stopGap = false;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Subtract) && stopGap)
+            {
+                physicsSolver.forceMultiplier /= 1.1;
+                std::cout << "Force Multiplier: " << physicsSolver.forceMultiplier << "\n";
+                stopGap = false;
             }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, 1);
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, physicsSolver.forceMultiplier);
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
             {
                 float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1);
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1 * physicsSolver.forceMultiplier);
             }
         }
         window.clear();
@@ -230,12 +243,6 @@ int main()
         window.display();
 
         physicsSolver.PhysicsUpdate();
-
-        if (stopGap2)
-        {
-            stopGap = true;
-        }
-        stopGap2 = !stopGap;
         
        
         //window.setFramerateLimit(80);
