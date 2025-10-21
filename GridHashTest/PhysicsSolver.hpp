@@ -150,7 +150,7 @@ public:
 			t2 = std::chrono::high_resolution_clock::now();
 		}
 		
-		singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
+		singleMS = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
 		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 

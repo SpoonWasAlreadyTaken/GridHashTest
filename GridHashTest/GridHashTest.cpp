@@ -11,8 +11,8 @@
 #include "FaultyUtilitiesMT.hpp"
 TaskSystem mt(10);
 
-std::chrono::steady_clock::time_point t1;
-std::chrono::steady_clock::time_point t2;
+std::chrono::high_resolution_clock::time_point t1;
+std::chrono::high_resolution_clock::time_point t2;
 std::chrono::microseconds singleMS;
 
 #include "PhysicsSolver.hpp"
@@ -97,7 +97,10 @@ int main()
     circle.setPointCount(8);
 
     // vertex array method
-    sprite.loadFromFile("./Assets\\CircleSprite.png"); // set to the texture path
+    if (!sprite.loadFromFile("./Assets/CircleSprite.png")) 
+    {
+        std::cout << "FAILED TO LOAD SPRITE!!! \n";
+    } // set to the texture path
     sprite.generateMipmap();
     sprite.setSmooth(true);
      
@@ -111,7 +114,10 @@ int main()
 
     // text code
     sf::Font font;
-    font.openFromFile("./Assets\\VIRUST.ttf"); // set to the font path
+    if (!font.openFromFile("./Assets/VIRUST.ttf"))
+    {
+        std::cout << "FAILED TO LOAD FONT!!! \n";
+    } // set to the font path
 
 
     sf::Text fpsText(font, "60");
@@ -261,7 +267,7 @@ void Draw(sf::RenderWindow& window)
     mt.WaitForComplete();
     window.draw(quad, &sprite);
     t2 = std::chrono::high_resolution_clock::now();
-    singleMS = duration_cast<std::chrono::microseconds>(t2 - t1);
+    singleMS = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
     //std::cout << "Draw Time: " << singleMS.count() << "\n";
 }
 
