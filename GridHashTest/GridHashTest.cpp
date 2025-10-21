@@ -95,7 +95,11 @@ int main()
     circle.setPointCount(8);
 
     // vertex array method
-    sprite.loadFromFile("./Assets\\CircleSprite.png"); // set to the texture path
+    if(!sprite.loadFromFile("./Assets/CircleSprite.png"))
+    {
+        std::cout << "ERROR: FAILED TO LOAD SPRITE!!!";
+        return 1;
+    } // set to the texture path
     sprite.generateMipmap();
     sprite.setSmooth(true);
      
@@ -108,7 +112,11 @@ int main()
 
     // text code
     sf::Font font;
-    font.openFromFile("./Assets\\VIRUST.ttf"); // set to the font path
+    if(!font.openFromFile("./Assets/VIRUST.ttf"))
+    {
+        std::cout << "ERROR: FAILED TO LOAD FONT!!!";
+        return 1;
+    } // set to the font path
 
 
     sf::Text fpsText(font, "60");
