@@ -21,7 +21,4 @@ public:
 	{
 		for (int i = 0; i < grid.size(); i++) grid[i].clear();
 	}
-
-
-
 };
