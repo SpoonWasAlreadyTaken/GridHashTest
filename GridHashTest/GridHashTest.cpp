@@ -2,10 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <random>
 #include <chrono>
-#include <thread>
 #include <cmath>
 
 #include "FaultyUtilitiesMT.hpp"
@@ -100,7 +97,6 @@ int main()
         std::cout << "ERROR: FAILED TO LOAD SPRITE!!!";
         return 1;
     } // set to the texture path
-    sprite.generateMipmap();
     sprite.setSmooth(true);
      
     // fps code
@@ -112,7 +108,7 @@ int main()
 
     // text code
     sf::Font font;
-    if(!font.openFromFile("./Assets/VIRUST.ttf"))
+    if (!font.openFromFile("./Assets/VIRUST.ttf"))
     {
         std::cout << "ERROR: FAILED TO LOAD FONT!!!";
         return 1;
@@ -256,7 +252,6 @@ int main()
         //window.setFramerateLimit(80);
     }
 
-    mt.~TaskSystem();
 }
 
 // functions
