@@ -28,9 +28,7 @@ int const toSpawn = 80000;
 
 
 #include "PhysicsSolver.hpp"
-#include "Particle.hpp"
 #include "SpatialHashing.hpp"
-#include "FaultyUtilities.hpp"
 
 
 
