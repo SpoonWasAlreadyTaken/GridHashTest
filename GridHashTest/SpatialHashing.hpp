@@ -1,7 +1,4 @@
 #pragma once
-#include "Particle.hpp"
-#include "PhysicsSolver.hpp"
-#include "FaultyUtilities.hpp"
 
 
 class SpatialHashing
@@ -9,16 +6,13 @@ class SpatialHashing
 public:
 	std::vector<std::vector<int>> grid;
 
-	int cellSize;
+	uint32_t cellSize;
 
-	int gridX;
-	int gridY;
+	uint32_t gridX;
+	uint32_t gridY;
 
-	int gridCount;
+	uint32_t gridCount;
 
 
-	void ClearGrid()
-	{
-		for (int i = 0; i < grid.size(); i++) grid[i].clear();
-	}
+	void ClearGrid() { for (uint32_t i = 0; i < grid.size(); i++) grid[i].clear(); }
 };

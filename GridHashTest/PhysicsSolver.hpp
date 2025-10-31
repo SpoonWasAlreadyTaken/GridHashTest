@@ -63,8 +63,8 @@ public:
 		spatialHashing.gridCount = spatialHashing.gridX * spatialHashing.gridY;
 
 		spatialHashing.grid.reserve(spatialHashing.gridCount);
-		for (int i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid.emplace_back();
-		for (int i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid[i].reserve(4);
+		for (uint32_t i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid.emplace_back();
+		for (uint32_t i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid[i].reserve(4);
 
 		std::cout << "GridCount: " << spatialHashing.gridCount << "\n";
 	}
@@ -156,21 +156,21 @@ public:
 
 	void Force(sf::Vector2f pos, float strength)
 	{
-		int x = pos.x / spatialHashing.cellSize;
-		int y = pos.y / spatialHashing.cellSize;
-		int reach = 150 / spatialHashing.cellSize;
+		uint32_t x = pos.x / spatialHashing.cellSize;
+		uint32_t y = pos.y / spatialHashing.cellSize;
+		uint32_t reach = 150 / spatialHashing.cellSize;
 
-		if (x < 0 || x >= spatialHashing.gridX) return;
-		if (y < 0 || y >= spatialHashing.gridY) return;
+		if (x >= spatialHashing.gridX) return;
+		if (y >= spatialHashing.gridY) return;
 
 
-		for (int i = y - reach; i < y + reach; i++)
+		for (uint32_t i = y - reach; i < y + reach; i++)
 		{
-			for (int j = x - reach; j < x + reach; j++)
+			for (uint32_t j = x - reach; j < x + reach; j++)
 			{
-				if (j < 0 || j >= spatialHashing.gridX) continue;
-				if (i < 0 || i >= spatialHashing.gridY) continue;
-				for (int p = 0; p < spatialHashing.grid[TwoToOneD(i, j)].size(); p++)
+				if (j >= spatialHashing.gridX) continue;
+				if (i >= spatialHashing.gridY) continue;
+				for (uint32_t p = 0; p < spatialHashing.grid[TwoToOneD(i, j)].size(); p++)
 				{
 					
 					sf::Vector2f direction = pos - particles[spatialHashing.grid[TwoToOneD(i, j)][p]].position;
@@ -180,8 +180,6 @@ public:
 				}
 			}
 		}
-
-		
 	}
 
 private:
@@ -235,7 +233,7 @@ private:
 	inline void ParticleCollision(uint32_t id, uint32_t yxID)
 	{
 		//std::cout << "yxID: " << yxID << "\n";
-		if (yxID < 0 || yxID >= spatialHashing.gridCount) return;
+		if (yxID >= spatialHashing.gridCount) return;
 		for (uint32_t i = 0; i < spatialHashing.grid[yxID].size(); i++)
 		{
 			if (id == spatialHashing.grid[yxID][i]) continue;
@@ -276,15 +274,15 @@ private:
 	{
 		//spatialHashing.ClearGrid();
 
-		int x;
-		int y;
+		uint32_t x;
+		uint32_t y;
 
 		for (int i = 0; i < particles.size(); i++)
 		{
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
 
-			if (y < 0 || y >= spatialHashing.gridY || x < 0 || x >= spatialHashing.gridX) continue;
+			if (y >= spatialHashing.gridY || x >= spatialHashing.gridX) continue;
 
 			spatialHashing.grid[TwoToOneD(y, x)].emplace_back(i);
 		}
@@ -294,16 +292,16 @@ private:
 	{
 		uint32_t end = start + span + leftOver;
 
-		int x;
-		int y;
+		uint32_t x;
+		uint32_t y;
 
 		for (uint32_t i = start; i < end; i++)
 		{
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
 
-			if (x < 0 || x >= spatialHashing.gridX) continue;
-			if (y < 0 || y >= spatialHashing.gridY) continue;
+			if (x >= spatialHashing.gridX) continue;
+			if (y >= spatialHashing.gridY) continue;
 
 			spatialHashing.grid[TwoToOneD(y, x)].emplace_back(i);
 		}
@@ -341,11 +339,11 @@ private:
 		uint32_t end = start + span + leftOver;
 		uint32_t midPoint = start + (span / 2);
 		
-		for (int i = start; i < midPoint; i++) 
+		for (uint32_t i = start; i < midPoint; i++) 
 		{ 
 			CheckGrid(i); 
 		}
-		for (int i = midPoint; i < end; i++) 
+		for (uint32_t i = midPoint; i < end; i++) 
 		{ 
 			CheckGrid(i); 
 		}

@@ -6,7 +6,7 @@
 #include <cmath>
 
 #include "FaultyUtilitiesMT.hpp"
-TaskSystem mt(10);
+TaskSystem mt(20);
 
 std::chrono::high_resolution_clock::time_point t1;
 std::chrono::high_resolution_clock::time_point t2;
@@ -58,7 +58,7 @@ int main()
     bool stopGap = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
 
-    for (int i = 0; i < vertexBuffer / 6; i++)
+    for (uint32_t i = 0; i < vertexBuffer / 6; i++)
     {
         // texture cordinte assignment
         int index = i * 6;
@@ -168,7 +168,6 @@ int main()
         
         while (const std::optional event = window.pollEvent())
         {
-            bool alreadyPressed = false;
 
             if (event->is<sf::Event::Closed>())
             {
@@ -277,11 +276,11 @@ void Draw(sf::RenderWindow& window)
 void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws particles in selected range
 {
     uint32_t end = start + span + leftOver;
-    
+
     for (uint32_t i = start; i < end; i++)
     {
-        int const index = i * 6;
 
+        int const index = i * 6;
         uint8_t speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 40;
 
         sf::Color color = sf::Color(speed, 0, 80);
@@ -311,5 +310,6 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
         quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
         quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
     }
+
 }
 
