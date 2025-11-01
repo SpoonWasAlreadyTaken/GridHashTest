@@ -1,39 +1,31 @@
 #pragma once
-#include "Particle.hpp"
-#include "PhysicsSolver.hpp"
-#include "FaultyUtilities.hpp"
-
 
 class SpatialHashing
 {
 public:
-	std::vector<int> **grid = NULL;
+	std::vector<std::vector<int>> grid;
 
-	int cellSize;
+	uint32_t cellSize = GetCellSize();
 
-	int columsX;
-	int rowsY;
+	uint32_t gridX = GetX();
+	uint32_t gridY = GetY();
 
-	int gridCount;
-
-		
-	void ClearGrid()
-	{
-		for (int i = 0; i < rowsY; i++)
-		{
-			for (int j = 0; j < columsX; j++)
-			{
-				if (!grid[i][j].empty())
-				{
-					grid[i][j].clear();
-				}
-			}
-		}
-	}
+    size_t gridCount = GetGridCount();
 
 
-private:
+	void ClearGrid() { for (uint32_t i = 0; i < grid.size(); i++) grid[i].clear(); }
+
+    SpatialHashing()
+    {
+        for (uint32_t i = 0; i < gridCount; i++) grid.emplace_back();
+
+        std::cout << "Grid X: " << gridX << " | Grid Y: " << gridY << "\n";
+        std::cout << "Grid Count: " << gridCount << "\n";
+    }
 
 
-
+    uint32_t GetCellSize() { return ceilf((particleSize) * 2); }
+    uint32_t GetX() { return sizeX / ceilf((particleSize) * 2); }
+    uint32_t GetY() { return sizeY / ceilf((particleSize) * 2); }
+    size_t GetGridCount() { return (sizeX / ceilf((particleSize) * 2)) * (sizeY / ceilf((particleSize) * 2)); }
 };

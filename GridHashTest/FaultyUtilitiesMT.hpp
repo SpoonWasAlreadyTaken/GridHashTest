@@ -4,7 +4,6 @@
 #include <mutex>
 #include <vector>
 #include <queue>
-#include <memory>
 #include <atomic>
 
 
@@ -46,7 +45,7 @@ public:
 			running = false;
 		}
 
-		for (int i = 0; i < workers.size(); i++) workers[i].join();
+		for (uint32_t i = 0; i < workers.size(); i++) workers[i].join();
 	}
 
 

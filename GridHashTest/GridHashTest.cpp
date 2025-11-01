@@ -2,40 +2,32 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
-#include <algorithm>
-#include <random>
 #include <chrono>
-#include <thread>
 #include <cmath>
 
 #include "FaultyUtilitiesMT.hpp"
-TaskSystem mt(10);
+TaskSystem mt(20);
 
 std::chrono::high_resolution_clock::time_point t1;
 std::chrono::high_resolution_clock::time_point t2;
 std::chrono::microseconds singleMS;
 
-#include "PhysicsSolver.hpp"
-#include "Particle.hpp"
-#include "SpatialHashing.hpp"
-#include "FaultyUtilities.hpp"
-
-
-
 
 // variable decleration
 
-uint32_t const sizeX = 1920;
-uint32_t const sizeY = 1080;
+uint32_t constexpr sizeX = 1920;
+uint32_t constexpr sizeY = 1080;
 
 float elapsedTime = 0;
+float deltaTime = 0;
 
-float const particleSize = 2;
+float constexpr particleSize = 2;
 
-int const toSpawn = 80000;
+int constexpr toSpawn = 80000;
 
 
 
+#include "PhysicsSolver.hpp"
 
 
 // function declerations
@@ -44,7 +36,7 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver);
 
 
 // class instancing
-PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
+PhysicsSolver physicsSolver = PhysicsSolver(8);
 
 
 // rendering declerations
@@ -62,10 +54,9 @@ int main()
 {
     int steps = 0;
     bool stopGap = true;
-    bool stopGap2 = true;
     sf::RenderWindow window(sf::VideoMode({ (uint32_t)sizeX, (uint32_t)sizeY }), "Particles", sf::State::Windowed);
 
-    for (int i = 0; i < vertexBuffer / 6; i++)
+    for (uint32_t i = 0; i < vertexBuffer / 6; i++)
     {
         // texture cordinte assignment
         int index = i * 6;
@@ -97,16 +88,15 @@ int main()
     circle.setPointCount(8);
 
     // vertex array method
-    if (!sprite.loadFromFile("./Assets/CircleSprite.png")) 
+    if(!sprite.loadFromFile("./Assets/CircleSprite.png"))
     {
-        std::cout << "FAILED TO LOAD SPRITE!!! \n";
+        std::cout << "ERROR: FAILED TO LOAD SPRITE!!!";
+        return 1;
     } // set to the texture path
-    sprite.generateMipmap();
     sprite.setSmooth(true);
      
     // fps code
     sf::Clock clock;
-    float currentTime = 0;
     int fps = 0.f;
     int avgFPS = 0;
     float ms = 0;
@@ -116,7 +106,8 @@ int main()
     sf::Font font;
     if (!font.openFromFile("./Assets/VIRUST.ttf"))
     {
-        std::cout << "FAILED TO LOAD FONT!!! \n";
+        std::cout << "ERROR: FAILED TO LOAD FONT!!!";
+        return 1;
     } // set to the font path
 
 
@@ -153,10 +144,11 @@ int main()
 
         particleCountText.setString(std::to_string(physicsSolver.particles.size()));
 
-        currentTime = clock.restart().asSeconds();
-        fps += 1 / currentTime;
-        ms += currentTime;
-        elapsedTime += currentTime;
+        deltaTime = clock.restart().asSeconds();
+
+        fps += 1 / deltaTime;
+        ms += deltaTime;
+        elapsedTime += deltaTime;
 
         if (steps == 10)
         {
@@ -167,62 +159,76 @@ int main()
             fps = 0;
             ms = 0;
             steps = 0;
+            stopGap = true;
         }
         steps++;
 
         
         while (const std::optional event = window.pollEvent())
         {
-            bool alreadyPressed = false;
 
             if (event->is<sf::Event::Closed>())
             {
                 window.close();
             }
 
-            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left))
+            if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Left) && stopGap)
             {
                 physicsSolver.gravity = physicsSolver.gravity.rotatedBy(sf::degrees(45));
                 std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Right) && stopGap)
             {
                 physicsSolver.gravity = physicsSolver.gravity.rotatedBy(sf::degrees(-45));
                 std::cout << "Gravity: " << physicsSolver.gravity.x << " | " << physicsSolver.gravity.y << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Up) && stopGap)
             {
-                physicsSolver.gravityMultiplier *= 2.f;
+                physicsSolver.gravityMultiplier *= 2;
                 std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
+                stopGap = false;
             }
-            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down))
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Down) && stopGap)
             {
-                physicsSolver.gravityMultiplier /= 2.f;
+                physicsSolver.gravityMultiplier /= 2;
                 std::cout << "Gravity: " << physicsSolver.gravity.x * physicsSolver.gravityMultiplier << " | " << physicsSolver.gravity.y * physicsSolver.gravityMultiplier << "\n";
+                stopGap = false;
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::G) && stopGap)
             {
                 physicsSolver.GravitySwitch();
                 std::cout << "Gravity: " << physicsSolver.gravityON << "\n";
                 stopGap = false;
-                break;
             }
             else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::S) && stopGap)
             {
                 for (uint32_t p = 0; p < physicsSolver.particles.size(); p++) physicsSolver.particles[p].Stop();
                 stopGap = false;
-                break;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Add) && stopGap)
+            {
+                physicsSolver.forceMultiplier *= 1.1;
+                std::cout << "Force Multiplier: " << physicsSolver.forceMultiplier << "\n";
+                stopGap = false;
+            }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::Subtract) && stopGap)
+            {
+                physicsSolver.forceMultiplier /= 1.1;
+                std::cout << "Force Multiplier: " << physicsSolver.forceMultiplier << "\n";
+                stopGap = false;
             }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
                 float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, 1);
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, physicsSolver.forceMultiplier);
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
             {
                 float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1);
+                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1 * physicsSolver.forceMultiplier);
             }
         }
         window.clear();
@@ -236,18 +242,11 @@ int main()
         window.display();
 
         physicsSolver.PhysicsUpdate();
-
-        if (stopGap2)
-        {
-            stopGap = true;
-        }
-        stopGap2 = !stopGap;
         
        
         //window.setFramerateLimit(80);
     }
 
-    mt.~TaskSystem();
 }
 
 // functions
@@ -275,11 +274,11 @@ void Draw(sf::RenderWindow& window)
 void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws particles in selected range
 {
     uint32_t end = start + span + leftOver;
-    
+
     for (uint32_t i = start; i < end; i++)
     {
-        int const index = i * 6;
 
+        int const index = i * 6;
         uint8_t speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 40;
 
         sf::Color color = sf::Color(speed, 0, 80);
@@ -309,5 +308,6 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
         quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
         quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
     }
+
 }
 
