@@ -15,21 +15,19 @@ std::chrono::microseconds singleMS;
 
 // variable decleration
 
-uint32_t const sizeX = 1920;
-uint32_t const sizeY = 1080;
+uint32_t constexpr sizeX = 1920;
+uint32_t constexpr sizeY = 1080;
 
 float elapsedTime = 0;
 float deltaTime = 0;
 
-float const particleSize = 2;
+float constexpr particleSize = 2;
 
-int const toSpawn = 80000;
+int constexpr toSpawn = 80000;
 
 
 
 #include "PhysicsSolver.hpp"
-#include "SpatialHashing.hpp"
-
 
 
 // function declerations
@@ -38,7 +36,7 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver);
 
 
 // class instancing
-PhysicsSolver physicsSolver = PhysicsSolver(sizeX, sizeY, 8, particleSize);
+PhysicsSolver physicsSolver = PhysicsSolver(8);
 
 
 // rendering declerations

@@ -21,53 +21,31 @@ public:
 	float spawnLocX;
 	float spawnLocY;
 
-	float particleSize;
 	float minCollision;
 	float particleDiameter;
 
 	float initialVelocityX = 50;
 	float initialVelocityY = 50;
 
-	PhysicsSolver(int resolutionX, int resolutionY, int s, float size)
+	PhysicsSolver(int s)
 	{
-		boundX = resolutionX;
-		boundY = resolutionY;
-		particleSize = size;
 		particleDiameter = particleSize * 2;
 		minCollision = particleDiameter * particleDiameter;
 
 		substeps = s;
 
-		spawnLocX = boundX;
-		spawnLocY = boundY - size * 2;
+		spawnLocX = sizeX;
+		spawnLocY = sizeY - particleSize * 2;
 
 		subDT = DT / (float)substeps;
 
-		particles.reserve(5000);
+		particles.reserve(toSpawn);
 
 		initialVelocityX /= subDT;
 		initialVelocityY /= subDT;
 
-		SetSpatialHashing();
 	}
 
-	void SetSpatialHashing()
-	{
-		spatialHashing.cellSize = ceilf((particleSize) * 2);
-
-		spatialHashing.gridX = boundX / spatialHashing.cellSize;
-		spatialHashing.gridY = boundY / spatialHashing.cellSize;
-
-		std::cout << "Grid X: " << spatialHashing.gridX << " Grid Y: " << spatialHashing.gridY << "\n";
-
-		spatialHashing.gridCount = spatialHashing.gridX * spatialHashing.gridY;
-
-		spatialHashing.grid.reserve(spatialHashing.gridCount);
-		for (uint32_t i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid.emplace_back();
-		for (uint32_t i = 0; i < spatialHashing.gridCount; i++) spatialHashing.grid[i].reserve(4);
-
-		std::cout << "GridCount: " << spatialHashing.gridCount << "\n";
-	}
 
 	void AddParticle()
 	{
@@ -75,11 +53,11 @@ public:
 		if (spawnLocX < 0)
 		{
 			spawnLocY -= particleSize * 2;
-			spawnLocX = boundX - particleSize * 2;
+			spawnLocX = sizeX - particleSize * 2;
 		}
 
 		particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0), particleSize);
-		//particles.emplace_back(sf::Vector2f(RandomNumber(0, boundX), RandomNumber(0, boundY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize);
+		//particles.emplace_back(sf::Vector2f(RandomNumber(0, sizeX), RandomNumber(0, sizeY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize);
 	}
 
 
@@ -186,10 +164,6 @@ private:
 	float absorption = 0.75f;
 	float drag = 1.f;
 
-	int boundX;
-	int boundY;
-
-
 	int substeps;
 	float subDT;
 
@@ -198,11 +172,11 @@ private:
 		sf::Vector2f dx = { -particles[index].GetVelocity().x, particles[index].GetVelocity().y};
 		sf::Vector2f dy = { particles[index].GetVelocity().x, -particles[index].GetVelocity().y };
 
-		if (particles[index].position.x + particleDiameter > boundX || particles[index].position.x < 0)
+		if (particles[index].position.x + particleDiameter > sizeX || particles[index].position.x < 0)
 		{
-			if (particles[index].position.x + particleDiameter > boundX)
+			if (particles[index].position.x + particleDiameter > sizeX)
 			{
-				particles[index].position.x = boundX - particleDiameter;
+				particles[index].position.x = sizeX - particleDiameter;
 			}
 			if (particles[index].position.x < 0)
 			{
@@ -210,11 +184,11 @@ private:
 			}
 			particles[index].SetVelocity(dx * absorption);
 		}
-		if (particles[index].position.y + particleDiameter > boundY || particles[index].position.y< 0)
+		if (particles[index].position.y + particleDiameter > sizeY || particles[index].position.y< 0)
 		{
-			if (particles[index].position.y + particleDiameter > boundY)
+			if (particles[index].position.y + particleDiameter > sizeY)
 			{
-				particles[index].position.y = boundY - particleDiameter;
+				particles[index].position.y = sizeY - particleDiameter;
 			}
 			if (particles[index].position.y < 0)
 			{
@@ -277,7 +251,7 @@ private:
 		uint32_t x;
 		uint32_t y;
 
-		for (int i = 0; i < particles.size(); i++)
+		for (size_t i = 0; i < particles.size(); i++)
 		{
 			x = particles[i].position.x / spatialHashing.cellSize;
 			y = particles[i].position.y / spatialHashing.cellSize;
@@ -322,7 +296,7 @@ private:
 		{
 			if (gravityON)
 			{
-				//particles[i].acceleration += (sf::Vector2f(boundX * 0.5, boundY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
+				//particles[i].acceleration += (sf::Vector2f(sizeX * 0.5, sizeY * 0.5) - particles[i].position).normalized() * gravityMultiplier * 9.81f / DT;
 				particles[i].acceleration += gravity * gravityMultiplier / DT;
 
 			}
