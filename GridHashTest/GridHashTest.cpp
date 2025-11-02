@@ -283,13 +283,13 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
 
         sf::Color color = sf::Color(speed, 0, 80);
         //sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
-        /*
+       /* 
         float d = elapsedTime + ((float)i * 0.00005) ;
         uint8_t r = 255.f * sin(d) * sin(d);
         uint8_t g = 255.f * sin(d + 0.33 * 2.f * acos(0)) * sin(d + 0.33 * 2.f * acos(0));
         uint8_t b = 255.f * sin(d + 0.66 * 2.f * acos(0)) * sin(d + 0.66 * 2.f * acos(0));
         sf::Color color = sf::Color(r, g, b);
-        */
+       */ 
 
         quad[index].color = color;
         quad[index + 1].color = color;

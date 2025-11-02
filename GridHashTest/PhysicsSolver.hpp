@@ -198,6 +198,41 @@ private:
 		}
 	}
 
+    void EdgePortal(int const index)
+    {
+		if (particles[index].position.x + particleDiameter > sizeX || particles[index].position.x < 0)
+		{
+			if (particles[index].position.x > sizeX)
+			{
+                sf::Vector2f delta = particles[index].position - particles[index].lastPosition;
+                particles[index].position.x = 0;
+                particles[index].lastPosition = particles[index].position - (delta * absorption);
+			}
+			if (particles[index].position.x < 0 - particleDiameter)
+			{
+                sf::Vector2f delta = particles[index].position - particles[index].lastPosition;
+				particles[index].position.x = sizeX - particleDiameter;
+                particles[index].lastPosition = particles[index].position - (delta * absorption);
+;
+			}
+		}
+		if (particles[index].position.y + particleDiameter > sizeY || particles[index].position.y< 0)
+		{
+			if (particles[index].position.y > sizeY)
+			{
+                sf::Vector2f delta = particles[index].position - particles[index].lastPosition;
+				particles[index].position.y = 0;
+                particles[index].lastPosition = particles[index].position - (delta * absorption);
+            }
+			if (particles[index].position.y < 0 - particleDiameter)
+			{
+                sf::Vector2f delta = particles[index].position - particles[index].lastPosition;
+				particles[index].position.y = sizeY - particleDiameter;
+                particles[index].lastPosition = particles[index].position - (delta * absorption);
+			}
+		}
+    }
+
 	sf::Vector2f ObjectCollision(sf::Vector2f const v, sf::Vector2f const n) const
 	{
 		return (2 * (v.x * n.x + v.y * n.y) * n - v ) * absorption;
