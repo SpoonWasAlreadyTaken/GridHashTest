@@ -254,7 +254,7 @@ private:
 			if (distance < minCollision)
 			{
 				distance = sqrt(distance);
-				sf::Vector2f change = v / distance * (0.25f * (particleDiameter - distance));
+				sf::Vector2f change = (v / distance * (0.25f * (particleDiameter - distance)));
 				particles[id].position += change;
 				particles[spatialHashing.grid[yxID][i]].position -= change;
 				//std::cout << "Particles Collided ID: " << o << " and " << i << " Grid From: X: " << sX << "|Y: " << sY << " Grid To: X:" << tX << "|Y: " << tY << " Change: " << change.x << "|" << change.y << "\n";
