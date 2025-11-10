@@ -167,7 +167,7 @@ private:
 	int substeps;
 	float subDT;
 
-	void EdgeCheck(int const index)
+	inline void EdgeCheck(int const index)
 	{
 		sf::Vector2f dx = { -particles[index].GetVelocity().x, particles[index].GetVelocity().y};
 		sf::Vector2f dy = { particles[index].GetVelocity().x, -particles[index].GetVelocity().y };
@@ -198,7 +198,7 @@ private:
 		}
 	}
 
-    void EdgePortal(int const index)
+    inline void EdgePortal(int const index)
     {
 		if (particles[index].position.x + particleDiameter > sizeX || particles[index].position.x < 0)
 		{

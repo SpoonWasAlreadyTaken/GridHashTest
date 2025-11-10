@@ -26,7 +26,6 @@ float constexpr particleSize = 2;
 int constexpr toSpawn = 80000;
 
 
-
 #include "PhysicsSolver.hpp"
 
 
