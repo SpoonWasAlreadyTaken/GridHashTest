@@ -1,4 +1,14 @@
-
+// debug
 g++ -Wall -Wextra -pedantic -g -fsanitize=address -std=c++20 GridHashTest.cpp -o particles -lsfml-graphics -lsfml-window -lsfml-system
 
+
+// release
 g++ -flto -O3 -std=c++20 GridHashTest.cpp -o particles -lsfml-graphics -lsfml-window -lsfml-system
+
+
+// cmake make build
+cmake -DCMAKE_BUILD_TYP=Release ..
+
+// cmake build
+
+cmake --build . --config Release
