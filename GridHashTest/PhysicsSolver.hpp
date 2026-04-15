@@ -63,8 +63,6 @@ public:
 
 	void PhysicsUpdate()
 	{
-		
-
 		uint32_t count = particles.size();
 		uint32_t span = count / mt.ActiveThreads();
 		uint32_t leftOver = count - (span * mt.ActiveThreads());

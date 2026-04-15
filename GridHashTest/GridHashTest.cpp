@@ -28,6 +28,10 @@ int constexpr toSpawn = 80000;
 
 #include "PhysicsSolver.hpp"
 
+uint8_t ranR = 255; 
+uint8_t ranG = 0;
+uint8_t ranB = 80;
+
 
 // function declerations
 void Draw(sf::RenderWindow& window);
@@ -218,6 +222,12 @@ int main()
                 std::cout << "Force Multiplier: " << physicsSolver.forceMultiplier << "\n";
                 stopGap = false;
             }
+            else if (sf::Keyboard::isKeyPressed(sf::Keyboard::Key::C) && stopGap)
+            {
+                ranR = RandomNumber(0,255);
+                ranG = RandomNumber(0, 255);
+                ranB = RandomNumber(0, 255);
+            }
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
@@ -280,7 +290,8 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
         int const index = i * 6;
         uint8_t speed = ((fabs(physicsSolver.particles[i].GetVelocity().x) + fabs(physicsSolver.particles[i].GetVelocity().y)) * 120) + 40;
 
-        sf::Color color = sf::Color(speed, 0, 80);
+        sf::Color color = sf::Color(speed, ranG, ranB);
+
        // sf::Color color = sf::Color(speed * 2 * acos(0), 0, 80);
        /* 
         float d = elapsedTime + ((float)i * 0.00005) ;
