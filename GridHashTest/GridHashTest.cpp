@@ -311,12 +311,12 @@ void DrawRange(uint32_t start, uint32_t span, uint32_t leftOver) // draws partic
 
         // position assignment
         quad[index].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y);
-        quad[index + 1].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index + 2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 1].position = sf::Vector2f(physicsSolver.particles[i].position.x + particleSize * 2, physicsSolver.particles[i].position.y);
+        quad[index + 2].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + particleSize * 2);
 
-        quad[index + 3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
-        quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y);
-        quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + physicsSolver.particles[i].size * 2, physicsSolver.particles[i].position.y + physicsSolver.particles[i].size * 2);
+        quad[index + 3].position = sf::Vector2f(physicsSolver.particles[i].position.x, physicsSolver.particles[i].position.y + particleSize * 2);
+        quad[index + 4].position = sf::Vector2f(physicsSolver.particles[i].position.x + particleSize * 2, physicsSolver.particles[i].position.y);
+        quad[index + 5].position = sf::Vector2f(physicsSolver.particles[i].position.x + particleSize * 2, physicsSolver.particles[i].position.y + particleSize * 2);
     }
 
 }

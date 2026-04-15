@@ -56,8 +56,8 @@ public:
 			spawnLocX = sizeX - particleSize * 2;
 		}
 
-		particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0), particleSize);
-		//particles.emplace_back(sf::Vector2f(RandomNumber(0, sizeX), RandomNumber(0, sizeY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)), particleSize);
+		particles.emplace_back(sf::Vector2f(spawnLocX,spawnLocY), sf::Vector2f(0, 0));
+		//particles.emplace_back(sf::Vector2f(RandomNumber(0, sizeX), RandomNumber(0, sizeY)), sf::Vector2f(RandomNumber(-initialVelocityX, initialVelocityX), RandomNumber(-initialVelocityY, initialVelocityY)));
 	}
 
 
@@ -108,17 +108,17 @@ public:
 			*/
 
 			
-			t1 = std::chrono::high_resolution_clock::now();
+		//	t1 = std::chrono::high_resolution_clock::now();
 			for (uint8_t i = 0; i < mt.ActiveThreads(); i++)
 			{
 				mt.AddTask([this, gSpan, gLeftOver, i]() {DoSlice(i * gSpan, gSpan, gLeftOver * (i == mt.ActiveThreads() - 1)); });
 			}
 			
 			mt.WaitForComplete();
-			t2 = std::chrono::high_resolution_clock::now();
+			//t2 = std::chrono::high_resolution_clock::now();
 		}
 		
-		singleMS = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
+		//singleMS = std::chrono::duration_cast<std::chrono::microseconds>(t2 - t1);
 		//std::cout << "Physics Udate Time: " << singleMS.count() << "\n";
 	}
 

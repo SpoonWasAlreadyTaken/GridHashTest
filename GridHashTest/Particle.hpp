@@ -7,14 +7,11 @@ public:
 	sf::Vector2f lastPosition;
 	sf::Vector2f acceleration;
 
-	float size;
-
-	Particle(sf::Vector2f pos, sf::Vector2f a, float s)
+	Particle(sf::Vector2f pos, sf::Vector2f a)
 	{
 		position = pos;
 		lastPosition = position;
 		acceleration = a;
-		size = s;
 	}
 
 	void SetVelocity(sf::Vector2f v) { lastPosition = position - v; }
