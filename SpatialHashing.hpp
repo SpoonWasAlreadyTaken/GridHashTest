@@ -1,4 +1,9 @@
 #pragma once
+#include "globals.hpp"
+
+#include <iostream>
+#include <cmath>
+#include <SFML/Graphics.hpp>
 
 class SpatialHashing
 {

@@ -1,7 +1,13 @@
 #pragma once
+#include "globals.hpp"
+
+#include <vector>
 #include "Particle.hpp"
 #include "SpatialHashing.hpp"
-#include "FaultyUtilities.hpp"
+#include <SFML/Graphics.hpp>
+
+//forward decleration
+
 
 class PhysicsSolver
 {

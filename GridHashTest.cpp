@@ -2,35 +2,12 @@
 #include <SFML/Graphics.hpp>
 #include <vector>
 #include <string>
-#include <chrono>
 #include <cmath>
+#include "globals.hpp"
 
-#include "FaultyUtilitiesMT.hpp"
-TaskSystem mt(20);
-
-std::chrono::high_resolution_clock::time_point t1;
-std::chrono::high_resolution_clock::time_point t2;
-std::chrono::microseconds singleMS;
-
-
-// variable decleration
-
-uint32_t constexpr sizeX = 1920;
-uint32_t constexpr sizeY = 1080;
-
-float elapsedTime = 0;
-float deltaTime = 0;
-
-float constexpr particleSize = 2;
-
-int constexpr toSpawn = 80000;
-
-
+#include "FaultyUtilities.hpp"
 #include "PhysicsSolver.hpp"
 
-uint8_t ranR = 255; 
-uint8_t ranG = 0;
-uint8_t ranB = 80;
 
 
 // function declerations
