@@ -208,13 +208,15 @@ int main()
 
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Left))
             {
-                float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, physicsSolver.forceMultiplier);
+                sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
+                sf::Vector2f mousePos = window.mapPixelToCoords(pixelPos);
+                physicsSolver.Force(mousePos, physicsSolver.forceMultiplier);
             }
             if (sf::Mouse::isButtonPressed(sf::Mouse::Button::Right))
-            {
-                float correct = sizeX / window.getSize().x;
-                physicsSolver.Force(static_cast<sf::Vector2f>(sf::Mouse::getPosition(window)) * correct, -1 * physicsSolver.forceMultiplier);
+            { 
+                sf::Vector2i pixelPos = sf::Mouse::getPosition(window);
+                sf::Vector2f mousePos = window.mapPixelToCoords(pixelPos);
+                physicsSolver.Force(mousePos, -1 * physicsSolver.forceMultiplier);
             }
         }
         window.clear();
