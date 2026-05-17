@@ -242,7 +242,6 @@ private:
 		return (2 * (v.x * n.x + v.y * n.y) * n - v ) * absorption;
 	}
 
-	
 	inline void ParticleCollision(uint32_t id, uint32_t yxID)
 	{
 		//std::cout << "yxID: " << yxID << "\n";
@@ -265,7 +264,7 @@ private:
 			}
 		}
 	}
-	
+
 
 	inline void CheckGrid(uint32_t yxID)
 	{
@@ -282,6 +281,7 @@ private:
 			ParticleCollision(spatialHashing.grid[yxID][i], yxID + spatialHashing.gridX + 1);
 		}
 	}
+
 
 	void FillGrid()
 	{
